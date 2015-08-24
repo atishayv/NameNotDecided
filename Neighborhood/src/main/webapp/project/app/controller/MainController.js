@@ -242,6 +242,12 @@ Ext.define('Neighborhood.controller.MainController',{
 		if(Neighborhood.util.isPhone()){
 			Neighborhood.app.getController('MainController').switchProfilePanel();
 		}
+		scrollPanelDomArr = $('.enableTouchScroll');
+		for(var i=0;i<scrollPanelDomArr.length;i++){
+			scrollPanelDomArr[i].addEventListener("touchmove", function(e){
+		        e.stopPropagation();
+		    }, false);
+		}
 	},
 	
 	gotoContactView : function(){
@@ -252,6 +258,12 @@ Ext.define('Neighborhood.controller.MainController',{
 		if(Neighborhood.util.isPhone()){
 			Neighborhood.app.getController('MainController').switchProfilePanel();
 		}
+		scrollPanelDomArr = $('.enableTouchScroll');
+		for(var i=0;i<scrollPanelDomArr.length;i++){
+			scrollPanelDomArr[i].addEventListener("touchmove", function(e){
+		        e.stopPropagation();
+		    }, false);
+		}
 	},
 	
 	gotoEventView : function(){
@@ -261,6 +273,12 @@ Ext.define('Neighborhood.controller.MainController',{
 		});
 		if(Neighborhood.util.isPhone()){
 			Neighborhood.app.getController('MainController').switchProfilePanel();
+		}
+		scrollPanelDomArr = $('.enableTouchScroll');
+		for(var i=0;i<scrollPanelDomArr.length;i++){
+			scrollPanelDomArr[i].addEventListener("touchmove", function(e){
+		        e.stopPropagation();
+		    }, false);
 		}
 	}
 	
