@@ -1,0 +1,1008 @@
+.mainViewCls .mainViewToolbarCls{
+    background-color: #A560DC;
+    background-image: -webkit-linear-gradient(top, #A76DE6, #BD86EC 3%, #8931E8);
+    height: 8%;
+}
+.mainViewCls .x-dock-body{
+	height : 92%;	
+}
+.mainViewCls .mainViewToolbarCls .x-innerhtml{
+	height : 100%;	
+}
+.mainViewCls .mainViewToolbarCls .x-innerhtml .leftToolbarCls{
+    height: 100%;
+    width: 23%;
+    float: left;
+    display: table;
+}
+.mainViewCls.mainViewPhoneCls .mainViewToolbarCls .x-innerhtml .leftToolbarCls{
+    width: 50%;	
+}
+.mainViewCls.mainViewPhoneCls .mainViewToolbarCls .x-innerhtml.search .leftToolbarCls{
+    width: 12%;	
+}
+.mainViewCls .mainViewToolbarCls .x-innerhtml .mainViewToolbarTextCls{
+	height: 100%;
+	width: 77%;
+    display: table;
+    float : left;
+    color: white;
+}
+.mainViewCls.mainViewPhoneCls .mainViewToolbarCls .x-innerhtml .mainViewToolbarTextCls{
+    width: 50%;	
+}
+.mainViewCls.mainViewPhoneCls .mainViewToolbarCls .x-innerhtml.search .mainViewToolbarTextCls{
+    width: 88%;	
+}
+.mainViewCls .mainViewToolbarCls .x-innerhtml .leftToolbarCls .spanTitle{
+	width: 81%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    height: 100%;
+    color: white;
+    display: table-cell;
+    vertical-align: middle;
+}
+.mainViewCls.mainViewPhoneCls .mainViewToolbarCls .x-innerhtml .leftToolbarCls .spanTitle{
+    font-size: 13px;
+    width: 70%;	
+}
+.mainViewCls.mainViewPhoneCls .mainViewToolbarCls .x-innerhtml.search .leftToolbarCls .spanTitle{
+	display : none;
+}
+.mainViewCls .mainViewToolbarCls .x-innerhtml .mainViewToolbarTextCls .spanDesc{
+	display: table-cell;
+    vertical-align: middle;
+    font-size: 18px;
+    width: 65%;
+    padding-left: 2%;
+}
+.mainViewCls.mainViewPhoneCls .mainViewToolbarCls .x-innerhtml .mainViewToolbarTextCls .spanDesc{
+    display: none;	
+}
+.mainViewCls .mainViewToolbarCls .x-innerhtml .mainViewToolbarTextCls .top-search-wrap{
+    /* display: table-cell; */
+    vertical-align: middle;
+    font-size: 18px;
+    width: 68%;
+    text-align: center;	
+    top : -100px;
+    height: 100%;
+    position : absolute;
+}
+.mainViewCls.mainViewPhoneCls .mainViewToolbarCls .x-innerhtml.search .mainViewToolbarTextCls .top-search-wrap{
+    width: 66%;
+}
+.mainViewCls .mainViewToolbarCls .x-innerhtml.search .mainViewToolbarTextCls .top-search-wrap{
+	display : table-cell;
+	top : 0px;
+    position : relative;
+	transition : all 500ms ease-in-out;
+}
+.mainViewCls .mainViewToolbarCls .x-innerhtml .mainViewToolbarTextCls .top-search-wrap input{
+    border: 0;
+    height: 70%;
+    padding: 0 10px 0 40px;
+    font-size: 18px;
+    margin: 10px;
+    width: 500px;
+    border-radius: 2px;
+    color: rgba(51, 51, 51, 0.69);
+    background-color: rgba(255, 255, 255, 0.26);
+    background-image: url("../images/search.png");
+    background-repeat: no-repeat;
+    background-position: 10px center	
+}
+.mainViewCls.mainViewPhoneCls .mainViewToolbarCls .x-innerhtml.search .mainViewToolbarTextCls .top-search-wrap input{
+    width: 88%;
+    background-size: 20px;
+    padding: 0px;
+    margin: 1%;	
+}
+.mainViewCls .mainViewToolbarCls .x-innerhtml .mainViewToolbarTextCls .top-search-wrap .top-search-close{
+    font-size: 23px;
+    font-style: normal;
+    color: rgba(0, 0, 0, 0.38);
+    width: 35px;
+    text-align: center;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.mainViewCls.mainViewPhoneCls .mainViewToolbarCls .x-innerhtml.search .mainViewToolbarTextCls .top-search-wrap .top-search-close{
+    font-size: 20px;
+    width: 4%;	
+    margin-right: 3%;
+}
+.mainViewCls .mainViewToolbarCls .x-innerhtml.search .mainViewToolbarTextCls .spanDesc{
+	display : none;
+}
+.mainViewCls .mainViewToolbarCls .x-innerhtml.search .mainViewToolbarTextCls .top-menu .fa-search{
+	display : none;
+}
+.mainViewCls .mainViewToolbarCls .x-innerhtml .mainViewToolbarTextCls .top-menu{
+    height: 100%;
+    width: 10%;
+    display: table-cell;
+    vertical-align: middle;	
+}
+.mainViewCls.mainViewPhoneCls .mainViewToolbarCls .x-innerhtml .mainViewToolbarTextCls .top-menu{
+    width: 42%;	
+}
+.mainViewCls.mainViewPhoneCls .mainViewToolbarCls .x-innerhtml.search .mainViewToolbarTextCls .top-menu{
+    width: 8%;	
+}
+.mainViewCls .mainViewToolbarCls .x-innerhtml .mainViewToolbarTextCls .top-menu i{
+	font-size: 20px;
+	margin-right: 20%;
+}
+.mainViewCls.mainViewPhoneCls .mainViewToolbarCls .x-innerhtml .mainViewToolbarTextCls .top-menu i{
+	font-size: 15px;
+}
+.mainViewCls .mainViewToolbarCls .x-innerhtml .mainViewToolbarTextCls .top-menu i .tmn-counts{
+    position: absolute;
+    color: #FFF;
+    font-style: normal;
+    background: #f44336;
+    padding: 1px 5px;
+    border-radius: 2px;
+    right: -15px;
+    top: -3px;
+    font-size: 9px;
+    -webkit-animation-name: wobble;
+    animation-name: wobble;
+    -webkit-animation-duration: 500ms;
+    animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;	
+}
+.mainViewCls .mainViewToolbarCls .x-innerhtml #main-menu-toggle{
+    float: left;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+}
+.mainViewCls .mainViewToolbarCls .x-innerhtml #main-menu-toggle .navbar-icon{
+    font-size: 18px;
+    transition: all .2s;
+    height: 100%;
+    width: 100%;
+    display: table-cell;
+    vertical-align: middle;	
+}
+.mainViewCls.mainViewPhoneCls .mainViewToolbarCls .x-innerhtml #main-menu-toggle .navbar-icon{
+    font-size: 14px;	
+}
+.mainViewCls .mainViewToolbarCls .x-innerhtml #main-menu-toggle .navbar-icon:before{
+	float : right;
+}
+.mainViewCls .mainViewToolbarCls .x-innerhtml #main-menu-toggle .navbar-icon:after{
+    content: "\f0d9";
+	float : left;
+	margin-right: 5px;
+    font-size: 1em;
+    
+}
+.mainViewCls .mainViewToolbarCls .x-innerhtml #main-menu-toggle.toggle-hide .navbar-icon:after{
+	content: "\f0da";
+	float : right;
+}
+
+
+.mainViewCls .profilePanelCls{
+	height: 100%;
+    width: 23%;
+    float: left;
+	border: 1px solid #9543EC;    
+	border-top: none;
+	transition: all 200ms ease-in-out;
+}
+.mainViewCls.mainViewPhoneCls .profilePanelCls{
+	width : 100%;
+}
+.mainViewCls .detailPanelCls{
+	height: 100%;
+    width: 77%;
+    float: left;
+    padding: 4%;
+    font-size: 15px;
+    transition: all 200ms ease-in-out;
+}
+.mainViewCls.mainViewPhoneCls .detailPanelCls{
+	display : none;
+}
+
+.mainViewCls .profilePanelCls .x-innerhtml{
+	height : 100%;
+}
+.mainViewCls .profilePanelCls .x-innerhtml .profile-block{
+    margin-bottom: 18px;
+    text-align: center;
+    height: 32%;
+}
+.mainViewCls.mainViewPhoneCls .profilePanelCls .x-innerhtml .profile-block{
+    margin-bottom: 10px;	
+}
+
+.mainViewCls .profilePanelCls .x-innerhtml .profile-block .profile-photo{
+	border-color: #e2e2e2;
+    padding: 6px;
+    display: inline-block;
+    margin-bottom: 10px;
+    border-radius: 999999px;
+}
+.mainViewCls.mainViewPhoneCls .profilePanelCls .x-innerhtml .profile-block .profile-photo{
+    height: 82%;
+    margin-bottom: 0px;
+    padding: 0px;	
+}
+
+.mainViewCls .profilePanelCls .x-innerhtml .profile-block .profile-photo img{
+    display: block;
+    max-width: 100%;
+    border-radius: 999999px;	
+}
+.mainViewCls.mainViewPhoneCls .profilePanelCls .x-innerhtml .profile-block .profile-photo img{
+	height : 100%;
+}
+
+.mainViewCls .profilePanelCls .x-innerhtml .panel{
+	border-color: #e4e4e4;
+    margin-bottom: 22px;
+    position: relative;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    text-align: center;
+}
+.mainViewCls .profilePanelCls .x-innerhtml .navigation{
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+    height: 64%
+}
+.mainViewCls .profilePanelCls .x-innerhtml .navigation li{
+	width : 100%;
+}
+.mainViewCls .profilePanelCls .x-innerhtml .navigation li:hover{
+    background-color: #D6D5D8;	
+}
+.mainViewCls .profilePanelCls .x-innerhtml .navigation a{
+	color: #808b9c;
+    position: relative;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    display: block;
+    font-size: 13px;
+    line-height: 20px;
+    padding: 11px 14px;
+    text-decoration: none;
+}
+.mainViewCls .profilePanelCls .x-innerhtml .navigation>li>a{
+    text-align: left;	
+}
+.mainViewCls .profilePanelCls .x-innerhtml .navigation>li>a>.menu-icon{
+    margin-right: 15px;
+}
+.mainViewCls .profilePanelCls .x-innerhtml .navigation .menu-icon{
+	display: inline-block;
+    margin-right: 5px;
+    line-height: 20px;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    font-size: 20px;
+}
+.mainViewCls .profilePanelCls .x-innerhtml .navigation>li>a.mm-text{
+    display: inline;	
+}
+
+.mainViewCls .profilePanelCls .x-innerhtml .navigation .animated{
+    transition: all 350ms linear;
+}
+.mainViewCls .profilePanelCls .x-innerhtml .navigation .mm-dropdown{
+	position: relative;
+}
+.mainViewCls .profilePanelCls .x-innerhtml .navigation>.mm-dropdown>a{
+    padding-right: 30px;	
+}
+.mainViewCls .profilePanelCls .x-innerhtml .navigation .mm-dropdown>a:before{
+    content: "\f105";
+    display: block;
+    font-family: FontAwesome;
+    font-size: 12px;
+    line-height: 10px;
+    height: 10px;
+    width: 10px;
+    right: 6%;
+    top: 17px;
+    margin: 0;
+    left : auto;
+    position: absolute;
+    text-align: center;
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;	
+}
+.mainViewCls .profilePanelCls .x-innerhtml .navigation>.mm-dropdown.open>a:before{
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.mainViewCls .profilePanelCls .x-innerhtml .navigation .mm-dropdown ul{
+	background: #D7D9DC;
+	height: 0px;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0;	
+}
+.mainViewCls .profilePanelCls .x-innerhtml .navigation .mm-dropdown ul li{
+    padding-left: 0;
+}
+.mainViewCls .profilePanelCls .x-innerhtml .navigation .mm-dropdown>ul>li>a{
+    padding-left: 40px;	
+}
+.mainViewCls .profilePanelCls .x-innerhtml .navigation .mm-dropdown ul a{
+	padding-bottom: 8px;
+    padding-top: 8px;
+}
+.mainViewCls .profilePanelCls .x-innerhtml .navigation .mm-dropdown.open>ul{
+	height: inherit;
+    opacity: 1;	
+}
+.mainViewCls .profilePanelCls.minimised{
+	width: 4%;
+}
+.mainViewCls.mainViewPhoneCls .profilePanelCls.minimised{
+	display : none;
+}
+@media only screen and (max-width: 1024px) and (min-width: 768px){
+	.mainViewCls .profilePanelCls.minimised{
+		width: 5%;
+	}	
+}
+.mainViewCls .profilePanelCls.minimised .x-innerhtml .profile-block{
+    display: none;	
+}
+.mainViewCls .profilePanelCls.minimised .x-innerhtml .navigation{
+	overflow : visible;
+}
+.mainViewCls .profilePanelCls.minimised .x-innerhtml .navigation .animated{
+    display: none;	
+}
+.mainViewCls .profilePanelCls.minimised .x-innerhtml .navigation .open .animated{
+     display: block;
+    position: absolute;
+    width: 185px;
+    margin-left: 101%;
+    z-index: 200;
+    top: 0px;	
+}
+
+
+
+
+.mainViewCls .detailPanelCls .timelineViewCls{
+    overflow-y: scroll	;
+    -webkit-overflow-scrolling: touch;
+}
+.mainViewCls .detailPanelCls .x-innerhtml .timeline{
+	position: relative;
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+}
+
+.mainViewCls .detailPanelCls.toggle-hide{
+	width:96%;	
+}
+.mainViewCls.mainViewPhoneCls .detailPanelCls.toggle-hide{
+	width:100%;
+	display : block;
+}
+@media only screen and (max-width: 1024px) and (min-width: 768px){
+	.mainViewCls .detailPanelCls.toggle-hide{
+		width:95%;	
+	}	
+}
+.mainViewCls .detailPanelCls .x-innerhtml .quick-update{
+    background: #fff;
+    border-radius: 4px;
+    width: 80%;
+    height: 150px;
+    margin: 0 auto;
+    margin-bottom: 45px !important;	
+}
+.mainViewCls.mainViewPhoneCls .detailPanelCls .x-innerhtml .quick-update{
+	width : 100%;
+}
+.mainViewCls .detailPanelCls .x-innerhtml .quick-update textarea{
+    border-radius: 0px;
+    border: 0 !important;
+    font-size: 12px !important;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom: 1px solid #ddd !important;	
+}
+.mainViewCls .detailPanelCls .x-innerhtml .quick-update .qu-buttons{
+    padding: 7px 10px;
+    background: #fafafa;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;	
+}
+.mainViewCls .detailPanelCls .x-innerhtml .quick-update .qu-buttons a{
+    margin-right: 3px;
+    color: #888;
+    text-decoration: none !important;	
+}
+.mainViewCls .detailPanelCls .x-innerhtml .quick-update .qu-buttons button{
+    background: #47b6ca;
+    color: #fff !important;
+    border: 1px solid #50b9cc !important;	
+}
+.mainViewCls .detailPanelCls .x-innerhtml .timeline:before{
+	background: #ddd;
+	left: 100px;
+	width: 4px;
+    top: 0;
+    margin-left: -2px;
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+}
+.mainViewCls.mainViewPhoneCls .detailPanelCls .x-innerhtml .timeline:before{
+	left: 10px;
+}
+
+.mainViewCls .detailPanelCls .x-innerhtml .timeline .tl-header{
+	    background: #ddd;
+    box-shadow: 0 0 0 4px #fff!important;
+    position: relative;
+    width: 140px;
+    padding: 8px 0;
+    text-align: center;
+    left: 0;
+    margin-left: 0;
+    margin-bottom: 40px;
+    font-size: 14px;
+    border-radius: 2px;
+}
+
+.mainViewCls .detailPanelCls .x-innerhtml .timeline .tl-entry{
+	margin-left: 100px;
+    margin-bottom: 20px;
+    margin-right: 0;
+    padding-left: 36px;
+    padding-right: 0;
+    position: relative;
+}
+.mainViewCls.mainViewPhoneCls .detailPanelCls .x-innerhtml .timeline .tl-entry{
+    margin-left: 0px;
+}
+
+.mainViewCls .detailPanelCls .x-innerhtml .timeline .tl-entry .tl-time{
+	left: auto;
+    right: 100%;
+    margin-left: 0;
+    margin-right: 32px;
+    top: 14px;
+    position: absolute;
+    text-align: right;
+    white-space: nowrap;
+    color: #888;
+    font-size: 13px;
+}
+.mainViewCls.mainViewPhoneCls .detailPanelCls .x-innerhtml .timeline .tl-entry .tl-time{
+    left: 10%;
+    width: 20%;
+    float: left;
+    margin-right: 5%;
+    margin-top: 4%;
+    position: initial;
+    text-align: left;
+}
+.mainViewCls .detailPanelCls .x-innerhtml .timeline .tl-entry .tl-icon{
+	box-shadow: 0 0 0 4px #fff!important;
+    display: block;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 999999px;
+    left: -20px;
+    right: auto;
+    top: 4px;
+    text-align: center;
+    font-size: 14px;
+    overflow: hidden;
+}
+.mainViewCls.mainViewPhoneCls .detailPanelCls .x-innerhtml .timeline .tl-entry .tl-icon{
+    position: initial;
+}
+
+.mainViewCls .detailPanelCls .x-innerhtml .timeline .tl-entry .tl-icon img{
+	height: 100%;
+    display: block;
+}
+
+.mainViewCls .detailPanelCls .x-innerhtml .timeline .tl-entry .bg-warning{
+	background: #f4b04f!important;
+}
+
+.mainViewCls .detailPanelCls .x-innerhtml .timeline .tl-entry .tl-body{
+	position: relative;
+    padding: 15px;
+    margin: 0;
+    border-color: #e2e2e2;
+}
+.mainViewCls.mainViewPhoneCls .detailPanelCls .x-innerhtml .timeline .tl-entry .tl-body{
+    left: 0%;
+    width: 100%;
+    margin-top: 6%;
+    position: initial;
+}
+
+
+
+.mainViewCls .rightPanelCls{
+	width: 20%;
+    overflow: hidden;
+    position: absolute;
+    right: calc(40px - 20%);
+    right: -webkit-calc(40px - 20%);
+    right: -moz-calc(40px - 20%);
+    height: 100%;
+}
+.mainViewCls.mainViewPhoneCls .rightPanelCls{
+	width: 100%;
+	right: calc(40px - 100%);
+    right: -webkit-calc(40px - 100%);
+    right: -moz-calc(40px - 100%);
+}
+@media only screen and (max-width: 1024px) and (min-width: 768px){
+	.mainViewCls .rightPanelCls{
+		width: 25%;
+		right: calc(40px - 25%);
+    	right: -webkit-calc(40px - 25%);
+    	right: -moz-calc(40px - 25%);
+	}
+}
+.mainViewCls .rightPanelCls.show{
+	right : 0px;
+}
+.mainViewCls .rightPanelCls .x-innerhtml{
+	height :100%;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .theme-config-box{
+	margin-right: -220px;
+    position: relative;
+    z-index: 2000;
+    transition-duration: 0.8s;
+    height: 100%;
+    width: 100%;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .spin-icon{
+	background: #9959E8;
+    position: absolute;
+    padding: 7px 10px 7px 13px;
+    border-radius: 20px 0px 0px 20px;
+    font-size: 16px;
+    top: 0;
+    left: 0px;
+    width: 40px;
+    color: #fff;
+    cursor: pointer;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings{
+	width: calc(100% - 40px);
+    width: -webkit-calc(100% - 40px);
+    width: -moz-calc(100% - 40px);
+    margin-left: 40px;
+    background: #f3f3f4;
+    height: 100%;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane{
+	height: 100%;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .sidebar-title{
+	background: #F3F0F7;
+    border-bottom: 1px solid #6A22D2;
+    text-align: center;
+    height: 60px;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .sidebar-list{
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    height: -webkit-calc(100% - 60px) !important;
+    height: -moz-calc(100% - 60px) !important;
+    height: calc(100% - 60px) !important;	
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .sidebar-tab-menu{
+	height: 8%;
+	background: #f9f9f9;
+	text-align: center;
+	width: 100%;
+    display: table;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .sidebar-tab-menu .tab-item{
+    width: 50%;
+    height: 100%;
+    float: left;
+    display: table-cell;
+    vertical-align: middle;
+    line-height: 55px;	
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .sidebar-tab-menu .tab-item.select{
+	border-bottom: 1px solid #782FD4;
+	font-weight: bold;
+}
+
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .friend-status{
+    height: 45%;
+    transition: all 500ms ease-in-out;
+    padding: 20px 0;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .friend-status.slideOut{
+	transform: translateX(1000px) translateY(0px) translateZ(0px) rotate(0deg) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg) scaleX(1) scaleY(1) scaleZ(1) !important;
+    transition-property: transform !important;
+    transition-duration: 1000ms !important;
+    transition-timing-function: ease-out !important;	
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .sidebar-overlay.slideOut{
+	transform: translateX(1000px) translateY(0px) translateZ(0px) rotate(0deg) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg) scaleX(1) scaleY(1) scaleZ(1) !important;
+    transition-property: transform !important;
+    transition-duration: 1000ms !important;
+    transition-timing-function: ease-out !important;	
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .friend-status .tab-pane{
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    height: 90%;	
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .friend-status .tab-pane .listview{
+    height: 100%;	
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .friend-status .tab-pane .listview .lv-item{
+    height: 55px;	
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings.minimised .tab-pane .friend-status{
+	height : 87%;
+}
+.mainViewCls.mainViewPhoneCls .rightPanelCls .x-innerhtml .skin-setttings.minimised .tab-pane .friend-status{
+	height : 80%;
+}
+.mainViewCls.mainViewPhoneCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .friend-status{
+	display : none;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .friend-status .chat-search{
+    height: 10%;
+    padding: 0px 20px 0px 20px;	
+}
+.mainViewCls.mainViewPhoneCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .friend-status .chat-search{
+    margin-bottom: 10px;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .friend-status .chat-search .fg-line{
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    vertical-align: top;	
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .friend-status .chat-search .fg-line input{
+    background-image: url("../images/search-2.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 30px;
+    -webkit-transition: all;
+    -o-transition: all;
+    transition: all;
+    -webkit-transition-duration: 300ms;
+    transition-duration: 300ms;
+    border: none;
+    border-bottom: 1px solid #6B20D8;
+    background-color: #F3F3F4;
+    box-shadow: none;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .friend-status .chat-search .fg-line input:focus{
+    background-position: right center;
+    padding: 0 30px 0 0;	
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .friend-status .lv-item{
+    padding: 10px 15px;
+    position: relative;
+    display: block;
+    -webkit-transition: background-color;
+    -o-transition: background-color;
+    transition: background-color;
+    -webkit-transition-duration: 300ms;
+    transition-duration: 300ms;	
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .friend-status .lv-item .media{
+	overflow: visible;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .friend-status .lv-item .media .p-relative{
+    padding-right: 15px;	
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .friend-status .lv-item .media img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;	
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .friend-status .lv-item .media .chat-status-busy{
+    box-shadow: 0 0 0 1px #ffa500;
+    background: #ffa500;
+    position: absolute;
+    width: 10px;
+    height: 9px;
+    border-radius: 50%;
+    border: 2px solid #FFF;	
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .friend-status .lv-item .media .chat-status-online{
+    box-shadow: 0 0 0 1px #9F67BB;
+    background: #5A0F9E;
+    position: absolute;
+    width: 10px;
+    height: 9px;
+    border-radius: 50%;
+    border: 2px solid #FFF;	
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .friend-status .lv-item .media .media-body{
+    zoom: 1;
+    display: block;
+    width: auto;
+    vertical-align: top;	
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .friend-status .lv-item .media .media-body .lv-title{
+    color: #000;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;	
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .friend-status .lv-item .media .media-body .lv-small{
+    font-size: 12px;
+    color: #A9A9A9;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    width: 100%;	
+}
+
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .sidebar-overlay{
+    height: 45%;
+    transition: all 500ms ease-in-out;
+    display : none;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings.minimised .tab-pane .sidebar-overlay{
+	height : 85%;
+}
+.mainViewCls.mainViewPhoneCls .rightPanelCls .x-innerhtml .skin-setttings.minimised .tab-pane .sidebar-overlay{
+	height : 76%;
+}
+.mainViewCls.mainViewPhoneCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .sidebar-overlay{
+	display : none;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .sidebar-message{
+	padding: 15px 20px;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .sidebar-message a{
+	color: inherit;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .sidebar-message a div{
+    margin-right: 10px;	
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .sidebar-message a div img{
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+    border: 1px solid #e7eaec;
+    margin-top: 1px;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .sidebar-message a .media-body{
+	font-size: 12px;
+    display: block;
+    width: auto;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .small-chat-box{
+    background: #fff;
+    border: 1px solid #e7eaec;
+    width: 100%;
+    height: 44%;
+    border-radius: 4px;
+    transition: all 500ms ease-in-out;
+}
+.mainViewCls.mainViewPhoneCls .rightPanelCls .x-innerhtml .skin-setttings .small-chat-box{
+	height: 89%;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings.minimised .small-chat-box{
+	height : 5%;
+}
+.mainViewCls.mainViewPhoneCls .rightPanelCls .x-innerhtml .skin-setttings.minimised .small-chat-box{
+	height : 7%;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings.minimised .small-chat-box .heading{
+	height : 100%;
+}
+/* .mainViewCls .rightPanelCls .x-innerhtml .skin-setttings.minimised .small-chat-box{
+	transform: translateX(0px) translateY(5px) translateZ(0px) rotate(0deg) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg) scaleX(1) scaleY(1) scaleZ(1) !important;
+    transition-property: transform !important;
+    transition-duration: 1000ms !important;
+    transition-timing-function: ease-out !important;
+} */
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings.minimised .small-chat-box .slimScrollDiv{
+	display : none;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings.minimised .small-chat-box .form-chat{
+	display : none;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .small-chat-box .heading{
+    height: 10%;
+    background: #2f4050;
+    padding: 8px 15px;
+    font-weight: bold;
+    color: #fff;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .small-chat-box .slimScrollDiv{
+    position: relative;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    width: auto;
+    height: 80%;	
+    padding: 15px;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .small-chat-box .slimScrollDiv .content{
+    width: auto;
+    height: 100%;	
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .small-chat-box .slimScrollDiv .content .left{
+	text-align: left;
+    clear: both;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .small-chat-box .slimScrollDiv .content .right{
+	text-align: right;
+    clear: both;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .small-chat-box .slimScrollDiv .content>div{
+    padding-bottom: 20px;	
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .small-chat-box .slimScrollDiv .content .author-name{
+    font-weight: bold;
+    margin-bottom: 3px;
+    font-size: 11px;
+    padding-top: 9px;	
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .small-chat-box .slimScrollDiv .content .chat-date{
+    opacity: 0.6;
+    font-size: 10px;
+    font-weight: normal;
+    margin-left: 10px;	
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .small-chat-box .slimScrollDiv .content .left .chat-message{
+	float : left;	
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .small-chat-box .slimScrollDiv .content .right .chat-message{
+	float : right;	
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .small-chat-box .slimScrollDiv .content .chat-message{
+	padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    line-height: 14px;
+    max-width: 80%;
+    background: #f3f3f4;
+    margin-bottom: 10px;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .small-chat-box .slimScrollDiv .content .chat-message.active{
+    background: #9A81D6;
+    color: #fff;	
+}
+
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .small-chat-box .form-chat{
+	height: 10%;
+}
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .small-chat-box .form-chat .btn-primary{
+    background-color: #A167EA;
+    border-color: #780ECC;
+    color: #FFFFFF;	
+}
+
+
+
+
+
+
+.notifOverlayCls{
+    height: 50%;
+    width: 18%;
+    box-shadow: none !important;
+    background-color: transparent !important;	
+    margin-left: -5% !important;
+}
+.notifOverlayCls.notifOverlayPhoneCls{
+	height: 75%;
+    width: 90%;
+}
+.notifOverlayCls .x-innerhtml{
+	height : 100%;
+}
+.notifOverlayCls .x-innerhtml .notif-menu{
+	height : 100%;
+}
+.notifOverlayCls .x-innerhtml .notif-menu .listview{
+	height : 100%;
+}
+.notifOverlayCls .x-innerhtml .notif-menu .listview .lv-header{
+    text-align: center;
+    padding: 15px 10px 13px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #F0F0F0;
+    font-weight: 500;
+    color: #4C4C4C;
+    height: 12%;	
+}
+.notifOverlayCls .x-innerhtml .notif-menu .listview .lv-header i{
+	float: right;
+    font-size: 20px;
+}
+.notifOverlayCls .x-innerhtml .notif-menu .listview .lv-body{
+	height: 76%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;	
+}
+.notifOverlayCls .x-innerhtml .notif-menu .listview .lv-body .lv-item{
+	padding: 10px 15px;
+    position: relative;
+    display: block;
+    -webkit-transition: background-color;
+    -o-transition: background-color;
+    transition: background-color;
+    -webkit-transition-duration: 300ms;
+    transition-duration: 300ms;	
+}
+.notifOverlayCls .x-innerhtml .notif-menu .listview .lv-body .lv-item.dismiss{
+	transform: translateX(1000px) translateY(0px) translateZ(0px) rotate(0deg) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg) scaleX(1) scaleY(1) scaleZ(1) !important;
+    transition-property: transform !important;
+    transition-duration: 1000ms !important;
+    transition-timing-function: ease-out !important;	
+}
+.notifOverlayCls .x-innerhtml .notif-menu .listview .lv-body .lv-item .media img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;	
+}
+.notifOverlayCls .x-innerhtml .notif-menu .listview .lv-body .lv-item .media .media-body{
+    zoom: 1;
+    display: block;
+    width: auto;	
+}
+.notifOverlayCls .x-innerhtml .notif-menu .listview .lv-body .lv-item .media .media-body .lv-title{
+	color: #000;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;	
+}
+.notifOverlayCls .x-innerhtml .notif-menu .listview .lv-body .lv-item .media .media-body .lv-small{
+    font-size: 12px;
+    color: #A9A9A9;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    width: 100%;	
+}
+.notifOverlayCls .x-innerhtml .notif-menu .listview .lv-footer{
+    height: 12%;
+    display: block;
+    text-align: center;
+    padding: 12px 10px 8px;
+    border-top: 1px solid #F0F0F0;
+    line-height: 100%;
+    font-size: 12px;
+    color: #828282;	
+}
+
+.notifOverlayCls .x-anchor{
+	background-color: #9E69EA !important;
+	/* margin-left: 7% !important; */
+}

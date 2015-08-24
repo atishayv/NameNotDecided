@@ -1,0 +1,139 @@
+.loginViewCls{
+    background: url('../images/bg_login2.jpg') no-repeat;
+        background-size: 100% 100%;
+}
+
+.loginViewCls .loginToolbarCls{
+	background-color: transparent;
+    background: transparent;
+    border: 0px;
+    color: white;
+    height: 10%;
+    width: 100%;
+}
+
+.loginViewCls .loginToolbarCls .x-toolbar-inner{
+	height: 100%;
+    width: 100%;
+}
+
+.loginViewCls .loginToolbarCls .x-toolbar-inner .x-innerhtml{
+height: 100%;
+}
+
+.loginViewCls .loginToolbarCls .x-toolbar-inner .x-innerhtml .loginToolbarTextCls{
+    height: 100%;
+    display: table;
+    width: 100%;
+    background: rgba(4, 4, 4, 0.51) center center no-repeat;
+}
+
+.loginViewCls .loginToolbarCls .x-toolbar-inner .x-innerhtml .loginToolbarTextCls .spanTitle{
+    vertical-align: middle;
+    display: table-cell;
+        width: 26%;
+    text-align: center;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+
+
+.loginViewCls .loginToolbarCls .x-toolbar-inner .x-innerhtml .loginToolbarTextCls .spanDesc{
+	    vertical-align: middle;
+    display: table-cell;
+        font-size: 18px;
+}
+
+.loginViewCls .loginPanelCls{
+    width: 25%;
+    box-shadow: none;
+    background-color: white;
+    height: 50%;
+    padding: 1%;
+    border: 1px solid #483A3A;
+}
+.loginViewCls .loginPanelCls .x-panel-inner{
+    height: 98%;	
+}
+
+.loginViewCls .loginPanelCls .loginPanelTextFieldCls{
+    font-size: 17px;
+}
+.loginViewCls .loginPanelCls .loginPanelTextFieldCls input{
+	text-align: center;
+}
+.loginViewCls.loginViewPhoneCls .loginPanelCls .loginPanelTextFieldCls{
+	font-size: 15px;
+}
+
+.loginViewCls .loginPanelCls .loginBtnCls{
+	background-color: #37A75C;
+    background-image: linear-gradient(to bottom, #348E59, #29CC47);
+    background-repeat: repeat-x;
+    border: 1px solid #CCC;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border-bottom-color: #B3B3B3;
+    font-size: medium;
+    margin-bottom: 3%;
+}
+.loginViewCls .loginPanelCls .facebookBtnCls .x-button-label{
+    font-size: 1.5em;	
+}
+
+.loginViewCls .loginPanelCls .registerComponentCls .x-innerhtml .register-account{
+	    text-align: center;
+    margin: 25px 0 0;
+}
+.loginViewCls .loginPanelCls .registerComponentCls .x-innerhtml .register-account .register-link{
+    color: #444;
+    background-color: transparent;
+    font-size: 15px;
+}
+.loginViewCls.loginViewPhoneCls .loginPanelCls .registerComponentCls .x-innerhtml .register-account .register-link{
+	font-size: 13px;	
+}
+.loginViewCls .loginPanelCls .registerComponentCls .x-innerhtml .register-account .password-link{
+    color: #444;
+    text-decoration: none;
+    background-color: transparent;
+    font-size: 15px;
+}
+.loginViewCls.loginViewPhoneCls .loginPanelCls .registerComponentCls .x-innerhtml .register-account .password-link{
+	font-size: 13px;
+}
+
+
+
+.loginViewCls.loginViewPhoneCls .loginToolbarCls .x-toolbar-inner .x-innerhtml .loginToolbarTextCls .spanTitle{
+    font-size: 17px;
+    width : 58%;
+}
+
+.loginViewCls.loginViewPhoneCls .loginToolbarCls .x-toolbar-inner .x-innerhtml .loginToolbarTextCls .spanDesc{
+       font-size: 12px;
+}
+
+.loginViewCls.loginViewPhoneCls .loginPanelCls{
+    width: 78%;
+    height : 60%;
+    margin: 0px;
+    padding: 0px;	
+    transition : all 0.5s ease-in-out;
+}
+.loginViewCls.loginViewPhoneCls .loginPanelCls.createAccCls{
+	height: 55%;
+}
+
+.loginViewCls.loginViewPhoneCls .loginPanelCls .loginBtnCls{
+    margin-left: 4%;
+    margin-right: 4%;
+}
+.loginViewCls .loginPanelCls .facebookBtnCls{
+	border : none;
+}
+.loginViewCls.loginViewPhoneCls .loginPanelCls .facebookBtnCls{
+    margin-left: 4%;
+    margin-right: 4%;
+    font-size: 10px;
+}
