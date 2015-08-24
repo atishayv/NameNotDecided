@@ -50,7 +50,7 @@ Ext.define('Neighborhood.view.mainView',{
 					'<div style="font-size: 20px;">Denise Steiner</div>'+
 				'</div>'+
 			
-					'<ul class="navigation">'+
+					'<ul class="navigation enableTouchScroll">'+
 					'<li>'+
 					'<a onclick="Neighborhood.app.getController(\'MainController\').gotoDashboard()"><i class="menu-icon fa fa-home"></i><span class="mm-text mmc-dropdown-delay animated fadeIn">Home</span></a>'+
 				'</li>'+
@@ -295,7 +295,7 @@ Ext.define('Neighborhood.view.mainView',{
 		                    '</div>'+
 	                    '</div>'+
                         
-	                    '<div role="tabpanel" class="tab-pane fade active in" id="friends">'+
+	                    '<div role="tabpanel" class="tab-pane fade active in enableTouchScroll" id="friends">'+
 	                        '<div class="listview">'+
 	                            '<a class="lv-item" href="">'+
 	                                '<div class="media">'+
@@ -397,7 +397,7 @@ Ext.define('Neighborhood.view.mainView',{
 		                        '<small><i class="fa fa-tim"></i> You have 10 new message.</small>'+
 		                    '</div>'+
 		                    
-		                    '<div class="sidebar-list">'+
+		                    '<div class="sidebar-list enableTouchScroll">'+
                             '<div class="sidebar-message">'+
                                 '<a href="#">'+
                                     '<div class="pull-left text-center">'+
@@ -514,7 +514,7 @@ Ext.define('Neighborhood.view.mainView',{
     		                'Small chat'+
     		            '</div>'+
     		
-    		            '<div class="slimScrollDiv"><div class="content">'+
+    		            '<div class="slimScrollDiv enableTouchScroll"><div class="content">'+
     		
     		                '<div class="left">'+
     		                    '<div class="author-name">Monica Jackson <small class="chat-date">10:02 am'+

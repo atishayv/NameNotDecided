@@ -14,6 +14,13 @@ Ext.define('Neighborhood.controller.MainController',{
 			this.switchProfilePanel();
 		}
 		
+		scrollPanelDomArr = $('.enableTouchScroll');
+		for(var i=0;i<scrollPanelDomArr.length;i++){
+			scrollPanelDomArr[i].addEventListener("touchmove", function(e){
+		        e.stopPropagation();
+		    }, false);
+		}
+	    
 	},
 	
 	onLoginSuccess : function(){
@@ -79,7 +86,7 @@ Ext.define('Neighborhood.controller.MainController',{
 	            '<div class="lv-header">Notification'+
 	            	'<i class="fa fa-check" onclick="Neighborhood.app.getController(\'MainController\').dismissNotifItems()"></i>'+
 	            '</div>'+
-	            '<div class="lv-body c-overflow" tabindex="2">'+
+	            '<div class="lv-body c-overflow enableTouchScroll" tabindex="2">'+
 	                '<a class="lv-item" href="">'+
 	                    '<div class="media">'+
 	                        '<div class="pull-left">'+

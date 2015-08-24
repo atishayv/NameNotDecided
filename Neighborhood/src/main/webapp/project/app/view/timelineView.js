@@ -4,7 +4,7 @@ Ext.define('Neighborhood.view.timelineView',{
 	xtype: 'timelineView',
 	
 	config:{
-		cls: 'timelineViewCls',
+		cls: 'timelineViewCls enableTouchScroll',
 		listeners:{},
 		
 		items:[
