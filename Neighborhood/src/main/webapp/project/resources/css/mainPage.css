@@ -611,6 +611,9 @@
     text-align: center;
     height: 60px;
 }
+.mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .sidebar-title h3{
+	margin-top : 0px;
+}
 .mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .tab-pane .sidebar-list{
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
@@ -775,7 +778,7 @@
     display : none;
 }
 .mainViewCls .rightPanelCls .x-innerhtml .skin-setttings.minimised .tab-pane .sidebar-overlay{
-	height : 85%;
+	height : 87%;
 }
 .mainViewCls.mainViewPhoneCls .rightPanelCls .x-innerhtml .skin-setttings.minimised .tab-pane .sidebar-overlay{
 	height : 76%;
@@ -839,7 +842,7 @@
 .mainViewCls .rightPanelCls .x-innerhtml .skin-setttings .small-chat-box .heading{
     height: 10%;
     background: #2f4050;
-    padding: 8px 15px;
+    padding: 2% 15px;
     font-weight: bold;
     color: #fff;
 }
