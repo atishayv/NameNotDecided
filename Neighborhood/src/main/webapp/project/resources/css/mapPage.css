@@ -1,0 +1,9 @@
+.mapViewCls{
+	background: white;
+}
+.mapViewCls .mapPanelCls{
+	height : 100%;
+}
+.mapViewCls .mapPanelCls .x-innerhtml{
+	height : 100%;
+}
