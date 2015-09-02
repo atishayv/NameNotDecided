@@ -5,7 +5,14 @@ Ext.define('Neighborhood.view.profileView',{
 	
 	config:{
 		cls: 'profileViewCls'+(Neighborhood.util.isPhone() ? ' profileViewPhoneCls' : ''),
+		showAnimation: {
+            type: 'slideIn',
+            direction:'right'
+        },
 		listeners:{
+             show : function(){
+            	 Neighborhood.app.getController('mapController').loadMapWithMarker('userMapContainer',{lat:12.9715987,lng : 77.5945627});
+             }
 		},
 		
 		items:[
@@ -226,14 +233,6 @@ Ext.define('Neighborhood.view.profileView',{
                             '<div id="userMapContainer" style="height: 300px"></div>'+
                             '<div>'+
                             '<div>',
-                            listeners:{
-                           	 painted: function(){
-                           		Neighborhood.app.getController('mapController').loadMapWithMarker('userMapContainer',[12.9715987,77.5945627]);
-                                },
-                             show : function(){
-                            	 alert("show");
-                             }
-                            }
 		       }
 		       ]
 	},

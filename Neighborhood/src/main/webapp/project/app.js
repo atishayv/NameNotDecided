@@ -29,7 +29,8 @@ Ext.application({
             'timelineView',
             'profileView',
             'contactView',
-            'eventView'],
+            'eventView',
+            'mapView'],
     
     controllers : ['MainController',
                    'profileController',

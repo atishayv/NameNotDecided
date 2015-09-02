@@ -5,6 +5,10 @@ Ext.define('Neighborhood.view.timelineView',{
 	
 	config:{
 		cls: 'timelineViewCls enableTouchScroll',
+		showAnimation: {
+            type: 'slideIn',
+            direction:'right'
+        },
 		listeners:{},
 		
 		items:[

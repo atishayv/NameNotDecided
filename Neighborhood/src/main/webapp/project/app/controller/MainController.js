@@ -10,9 +10,14 @@ Ext.define('Neighborhood.controller.MainController',{
 		
 		Ext.Viewport.add(this.mainView);
 		Ext.Viewport.setActiveItem(this.mainView);
-		if(Neighborhood.util.isPhone()){
-			this.switchProfilePanel();
-		}
+		
+		this.mainView.getComponent('detailPanelId').on('activeitemchange', function(cmp,newCard, oldCard) {
+            if (oldCard) {
+                this.remove(oldCard, false);                    
+            }
+        }, this.mainView.getComponent('detailPanelId'));
+		
+		this.gotoDashboard();
 		
 		scrollPanelDomArr = $('.enableTouchScroll');
 		for(var i=0;i<scrollPanelDomArr.length;i++){
@@ -225,20 +230,29 @@ Ext.define('Neighborhood.controller.MainController',{
 	},
 	
 	gotoDashboard : function(){
-		Neighborhood.app.getController('MainController').mainView.getComponent('detailPanelId').animateActiveItem(0,{
+		if(!this.timelineView)
+			this.timelineView = Ext.create('Neighborhood.view.timelineView');
+		
+		this.mainView.getComponent('detailPanelId').setActiveItem(this.timelineView)
+		/*Neighborhood.app.getController('MainController').mainView.getComponent('detailPanelId').animateActiveItem(0,{
             type: 'slide',
             direction: 'left'
-		});
+		});*/
 		if(Neighborhood.util.isPhone()){
 			Neighborhood.app.getController('MainController').switchProfilePanel();
 		}
 	},
 	
 	gotoProfileView : function(){
-		Neighborhood.app.getController('MainController').mainView.getComponent('detailPanelId').animateActiveItem(1,{
+		if(!this.profileView)
+			this.profileView = Ext.create('Neighborhood.view.profileView');
+		
+		this.mainView.getComponent('detailPanelId').setActiveItem(this.profileView);
+		
+		/*Neighborhood.app.getController('MainController').mainView.getComponent('detailPanelId').animateActiveItem(1,{
             type: 'slide',
             direction: 'left'
-		});
+		});*/
 		if(Neighborhood.util.isPhone()){
 			Neighborhood.app.getController('MainController').switchProfilePanel();
 		}
@@ -251,10 +265,15 @@ Ext.define('Neighborhood.controller.MainController',{
 	},
 	
 	gotoContactView : function(){
-		Neighborhood.app.getController('MainController').mainView.getComponent('detailPanelId').animateActiveItem(2,{
+		if(!this.contactView)
+			this.contactView = Ext.create('Neighborhood.view.contactView');
+		
+		this.mainView.getComponent('detailPanelId').setActiveItem(this.contactView)
+		
+		/*Neighborhood.app.getController('MainController').mainView.getComponent('detailPanelId').animateActiveItem(2,{
             type: 'slide',
             direction: 'left'
-		});
+		});*/
 		if(Neighborhood.util.isPhone()){
 			Neighborhood.app.getController('MainController').switchProfilePanel();
 		}
@@ -267,10 +286,36 @@ Ext.define('Neighborhood.controller.MainController',{
 	},
 	
 	gotoEventView : function(){
-		Neighborhood.app.getController('MainController').mainView.getComponent('detailPanelId').animateActiveItem(3,{
+		if(!this.eventView)
+			this.eventView = Ext.create('Neighborhood.view.eventView');
+		
+		this.mainView.getComponent('detailPanelId').setActiveItem(this.eventView)
+		
+		/*Neighborhood.app.getController('MainController').mainView.getComponent('detailPanelId').animateActiveItem(3,{
             type: 'slide',
             direction: 'left'
-		});
+		});*/
+		if(Neighborhood.util.isPhone()){
+			Neighborhood.app.getController('MainController').switchProfilePanel();
+		}
+		scrollPanelDomArr = $('.enableTouchScroll');
+		for(var i=0;i<scrollPanelDomArr.length;i++){
+			scrollPanelDomArr[i].addEventListener("touchmove", function(e){
+		        e.stopPropagation();
+		    }, false);
+		}
+	},
+	
+	gotoMapView : function(){
+		if(!this.mapView)
+			this.mapView = Ext.create('Neighborhood.view.mapView');
+		
+		this.mainView.getComponent('detailPanelId').setActiveItem(this.mapView)
+		
+		/*Neighborhood.app.getController('MainController').mainView.getComponent('detailPanelId').animateActiveItem(3,{
+            type: 'slide',
+            direction: 'left'
+		});*/
 		if(Neighborhood.util.isPhone()){
 			Neighborhood.app.getController('MainController').switchProfilePanel();
 		}
