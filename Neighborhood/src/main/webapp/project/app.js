@@ -34,7 +34,8 @@ Ext.application({
     controllers : ['MainController',
                    'profileController',
                    'eventController',
-                   'loginController'],
+                   'loginController',
+                   'mapController'],
      
      stores :[],
      
