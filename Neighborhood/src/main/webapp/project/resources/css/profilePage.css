@@ -1,5 +1,6 @@
 .profileViewCls{
 	overflow-y : scroll;
+	background: white;
 }
 .profileViewCls .aboutPanelCls .pmb-block{
 	padding: 40px 42px 0;

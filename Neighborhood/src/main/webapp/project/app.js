@@ -29,12 +29,14 @@ Ext.application({
             'timelineView',
             'profileView',
             'contactView',
-            'eventView'],
+            'eventView',
+            'mapView'],
     
     controllers : ['MainController',
                    'profileController',
                    'eventController',
-                   'loginController'],
+                   'loginController',
+                   'mapController'],
      
      stores :[],
      

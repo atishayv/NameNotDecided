@@ -1,6 +1,7 @@
 .contactViewCls{
 	overflow-y : scroll;
 	overflow-x: hidden;
+	background: white;
 }
 .contactViewCls .contactPanelCls .wrapper{
 	padding: 20px 10px 40px;

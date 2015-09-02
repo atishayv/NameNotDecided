@@ -74,6 +74,9 @@ Ext.define('Neighborhood.view.mainView',{
 						'</li>'+
 					'</ul>'+
 				'</li>'+
+				'<li>'+
+					'<a onclick="Neighborhood.app.getController(\'MainController\').gotoMapView()"><i class="menu-icon fa fa-street-view"></i><span class="mm-text mmc-dropdown-delay animated fadeIn">Map</span></a>'+
+				'</li>'+
 				'<li class="mm-dropdown mm-dropdown-root"  onclick="$(this).toggleClass(\'open\')">'+
 					'<a href="#"><i class="menu-icon fa fa-desktop"></i><span class="mm-text mmc-dropdown-delay animated fadeIn">UI elements</span></a>'+
 					'<ul class="mmc-dropdown-delay animated fadeInLeft" style="">'+
@@ -245,7 +248,7 @@ Ext.define('Neighborhood.view.mainView',{
 		    	   itemId:"detailPanelId",
 		    	   layout:'card',
 		    	   items : [
-		    	            {
+		    	            /*{
 		    	    	    	   xclass:'Neighborhood.view.timelineView',
 		    	    	    	   itemId:'timelineViewId'
 		    	    	    },
@@ -260,7 +263,7 @@ Ext.define('Neighborhood.view.mainView',{
 		    	    	    {
 		    	    	    	   xclass:'Neighborhood.view.eventView',
 		    	    	    	   itemId:'eventViewId'
-		    	    	    }
+		    	    	    }*/
 		    	            ],
     	            listeners:{
                    	 activeitemchange: function(cmp,newCard, oldCard){

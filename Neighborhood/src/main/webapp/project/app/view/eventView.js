@@ -5,6 +5,10 @@ Ext.define('Neighborhood.view.eventView',{
 	
 	config:{
 		cls: 'eventViewCls'+(Neighborhood.util.isPhone() ? ' eventViewPhoneCls' : ''),
+		showAnimation: {
+            type: 'slideIn',
+            direction:'right'
+        },
 		listeners:{},
 		
 		items:[
