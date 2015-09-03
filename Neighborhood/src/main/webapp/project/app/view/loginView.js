@@ -63,7 +63,7 @@ Ext.define('Neighborhood.view.loginView',{
 							    hidden : true,
 							    handler : function(cmp){
 							    	
-							    	var request1 = { userName:"Ayush",password:"ayush",email:"ayush@ayush.com", action:"newUserRegister" }; 
+							    	/*var request1 = { userName:"Ayush",password:"ayush",email:"ayush@ayush.com", action:"newUserRegister" }; 
 							    	
 							    	var jsonString1 = JSON.stringify({			
 						    			requestObject : request1
@@ -72,7 +72,7 @@ Ext.define('Neighborhood.view.loginView',{
 							    	console.log(jsonString1);
 							    	
 							    	$.ajax({
-										url : "http://192.168.21.194:8082/Neighborhood/NeighborhoodProxy",
+										url : "http://192.168.21.193:8093/Neighborhood/NeighborhoodProxy",
 										type : "POST",
 										data 	: jsonString1,
 										dataType : "json",
@@ -82,8 +82,8 @@ Ext.define('Neighborhood.view.loginView',{
 										error : function(data) {
 											console.log(data);
 										}
-									});
-							    	
+									});*/
+							    	Neighborhood.request.DataService.newUserRegister();
 							    	
 							    }
 							},
