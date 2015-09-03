@@ -15,7 +15,7 @@ public class UserDAO {
 
 	public JSONObject newUserRegister(String userName, String password, String email
 			) {
-		
+		System.out.println("3");
 		JSONObject responseObj = new JSONObject();
 		try {
 			

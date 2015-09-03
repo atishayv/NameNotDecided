@@ -1,9 +1,11 @@
 package controller;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -11,20 +13,31 @@ import javax.servlet.http.HttpSession;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import sun.org.mozilla.javascript.internal.json.JsonParser;
 import dao.UserDAO;
 
-public class MainControllerServlet {
+public class MainControllerServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
 		try{
+			StringBuilder sb = new StringBuilder();
+			String line;
+			try {
+			    BufferedReader reader = request.getReader();
+			    while ((line = reader.readLine()) != null)
+			    	sb.append(line);
+			  } catch (Exception e) { /*report an error*/ }
+
+		
+			JSONObject jsonObjectRequest = new JSONObject(sb.toString());
 			
-			JSONObject requestObject = new JSONObject(request.getParameter("requestObject"));
+			JSONObject requestObject = jsonObjectRequest.getJSONObject("requestObject");
+			
+			System.out.println(requestObject);
 			
 			if(requestObject.getString("action").equalsIgnoreCase("newUserRegister")){
-				
+				System.out.println("1");
 				String userName = requestObject.getString("userName");
 				String password = requestObject.getString("password");
 				String email = requestObject.getString("email");
@@ -34,6 +47,7 @@ public class MainControllerServlet {
 				HttpSession session = request.getSession(true);
 				
 				try {
+					System.out.println("2");
 					UserDAO userDAO = new UserDAO();
 					JSONObject responseObj = userDAO.newUserRegister(userName, password, email);
 					//esponse.sendRedirect("Success");
@@ -66,7 +80,7 @@ public class MainControllerServlet {
 			
 			
 		}catch(JSONException e){
-			
+			e.printStackTrace();
 		}
 		
 		

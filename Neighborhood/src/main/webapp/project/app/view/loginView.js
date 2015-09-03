@@ -66,10 +66,10 @@ Ext.define('Neighborhood.view.loginView',{
 							    	var request1 = { userName:"Ayush",password:"ayush",email:"ayush@ayush.com", action:"newUserRegister" }; 
 							    	
 							    	var jsonString1 = JSON.stringify({			
-						    			iReqType: request1.iReqType,
-						    			params : JSON.stringify(request1.params)
+						    			requestObject : request1
 						    		});
 							    	
+							    	console.log(jsonString1);
 							    	
 							    	$.ajax({
 										url : "http://192.168.21.194:8082/Neighborhood/NeighborhoodProxy",
