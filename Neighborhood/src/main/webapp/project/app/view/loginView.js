@@ -61,31 +61,7 @@ Ext.define('Neighborhood.view.loginView',{
 							    padding: '10px',
 							    text: 'Create Account',
 							    hidden : true,
-							    handler : function(cmp){
-							    	
-							    	var request1 = { userName:"Ayush",password:"ayush",email:"ayush@ayush.com", action:"newUserRegister" }; 
-							    	
-							    	var jsonString1 = JSON.stringify({			
-						    			iReqType: request1.iReqType,
-						    			params : JSON.stringify(request1.params)
-						    		});
-							    	
-							    	
-							    	$.ajax({
-										url : "http://192.168.21.194:8082/Neighborhood/NeighborhoodProxy",
-										type : "POST",
-										data 	: jsonString1,
-										dataType : "json",
-										success : function(data) {
-											console.log(data);
-										},
-										error : function(data) {
-											console.log(data);
-										}
-									});
-							    	
-							    	
-							    }
+							    handler : function(cmp){}
 							},
 							{
 							    xtype: 'button',

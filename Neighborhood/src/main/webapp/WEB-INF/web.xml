@@ -4,14 +4,4 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  
-  <servlet>
-    <servlet-name>MainControllerServlet</servlet-name>
-    <servlet-class>controller.MainControllerServlet</servlet-class>
-  </servlet>
-   <servlet-mapping>
-    <servlet-name>MainControllerServlet</servlet-name>
-    <url-pattern>/NeighborhoodProxy</url-pattern>
-  </servlet-mapping>
-  
 </web-app>
