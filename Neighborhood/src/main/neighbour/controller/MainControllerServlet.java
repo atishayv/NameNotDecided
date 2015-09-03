@@ -28,18 +28,18 @@ public class MainControllerServlet {
 				String userName = requestObject.getString("userName");
 				String password = requestObject.getString("password");
 				String email = requestObject.getString("email");
-				String phone = requestObject.getString("phone");
+			/*	String phone = requestObject.getString("phone");
 				String currentAddress = requestObject.getString("currentAddress");
-				
+			*/	
 				HttpSession session = request.getSession(true);
 				
 				try {
 					UserDAO userDAO = new UserDAO();
-					JSONObject responseObj = userDAO.newUserRegister(userName, password, email, phone, currentAddress);
+					JSONObject responseObj = userDAO.newUserRegister(userName, password, email);
 					//esponse.sendRedirect("Success");
 					
 					PrintWriter writer = response.getWriter();
-					writer.print("");
+					writer.print(responseObj);
 					writer.close();
 				} catch (Exception e) {
 
@@ -68,9 +68,6 @@ public class MainControllerServlet {
 		}catch(JSONException e){
 			
 		}
-		
-		
-		
 		
 		
 

@@ -13,8 +13,10 @@ import bean.User;
 
 public class UserDAO {
 
-	public JSONObject newUserRegister(String userName, String password, String email,
-			String phone, String currentAddress) {
+	public JSONObject newUserRegister(String userName, String password, String email
+			) {
+		
+		JSONObject responseObj = new JSONObject();
 		try {
 			
 			// 3. Get Session object
@@ -28,17 +30,21 @@ public class UserDAO {
 				user.setUserName(userName);
 				user.setPassword(password);
 				user.setEmail(email);
-				user.setCurrentAddress(currentAddress);
-				user.setPhone(phone);
 				session.save(user);
 				transaction.commit();
 			}
 			
 			System.out.println("\n\n User registered successfully \n");
-			JSONObject responseObj = new JSONObject();
+			
 			responseObj.put("RESPONSE_STATUS", "SUCCESS");
-			responseObj.put("RESPONSE_OBJECT", "SUCCESS");
-
+			
+			JSONObject responseObj_Object = new JSONObject();
+			
+			responseObj_Object.put("Message", "Registration Success");
+			responseObj_Object.put("userName", userName);
+			
+			responseObj.put("RESPONSE_OBJECT", responseObj_Object);
+			
 		} catch (HibernateException e) {
 			System.out.println(e.getMessage());
 			System.out.println("error");
@@ -46,7 +52,9 @@ public class UserDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		
+		return responseObj;
+		
 	}
 	
 	public void userLogin(String emailId, String password){
