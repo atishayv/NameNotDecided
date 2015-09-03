@@ -104,25 +104,29 @@ Ext.define('Neighborhood.view.loginView',{
 							    padding: '10px',
 							    text: 'Connect with Facebook',
 							    handler : function(cmp){
-							    	/*FB.getLoginStatus(function(response) {
+							    	FB.getLoginStatus(function(response) {
 							    		  if (response.status === 'connected') {
 							    		    console.log('Logged in.');
 							    		    FB.api(
-							    		    	    "/me?fields=id,name,picture",
+							    		    	    "/me?fields=id,name,picture,about,bio,birthday,education,email,gender",
 							    		    	    function (response) {
 							    		    	      if (response && !response.error) {
-							    		    	         handle the result 
+							    		    	         //handle the result   picture?type=large
 							    		    	    	  console.log(response);
+							    		    	    	  Neighborhood.app.getController('MainController').onLoginSuccess(response);
 							    		    	      }
 							    		    	    }
 							    		    	);
 							    		  }
 							    		  else {
-							    		    FB.login();
+							    		    FB.login(function(response) {
+							    		    	   // handle the response
+							    		    	console.log(response);
+							    		    	Neighborhood.app.getController('MainController').onLoginSuccess(response);
+							    		    }, {scope: 'email,user_birthday,user_about_me'});
 							    		  }
-							    		});*/
+							    		});
 							    	
-							    	Neighborhood.app.getController('MainController').onLoginSuccess();
 							    }
 							},
 							{
