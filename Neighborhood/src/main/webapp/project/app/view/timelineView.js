@@ -9,7 +9,11 @@ Ext.define('Neighborhood.view.timelineView',{
             type: 'slideIn',
             direction:'right'
         },
-		listeners:{},
+		listeners:{
+			show : function(){
+				//make server request and get the feeds
+			}
+		},
 		
 		items:[
 		       {

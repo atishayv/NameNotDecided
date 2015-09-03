@@ -63,16 +63,16 @@ Ext.define('Neighborhood.view.loginView',{
 							    hidden : true,
 							    handler : function(cmp){
 							    	
-							    	var request1 = { userName:"Ayush",password:"ayush",email:"ayush@ayush.com", action:"newUserRegister" }; 
+							    	/*var request1 = { userName:"Ayush",password:"ayush",email:"ayush@ayush.com", action:"newUserRegister" }; 
 							    	
 							    	var jsonString1 = JSON.stringify({			
-						    			iReqType: request1.iReqType,
-						    			params : JSON.stringify(request1.params)
+						    			requestObject : request1
 						    		});
 							    	
+							    	console.log(jsonString1);
 							    	
 							    	$.ajax({
-										url : "http://192.168.21.194:8082/Neighborhood/NeighborhoodProxy",
+										url : "http://192.168.21.193:8093/Neighborhood/NeighborhoodProxy",
 										type : "POST",
 										data 	: jsonString1,
 										dataType : "json",
@@ -82,8 +82,8 @@ Ext.define('Neighborhood.view.loginView',{
 										error : function(data) {
 											console.log(data);
 										}
-									});
-							    	
+									});*/
+							    	Neighborhood.request.DataService.newUserRegister();
 							    	
 							    }
 							},
@@ -104,25 +104,29 @@ Ext.define('Neighborhood.view.loginView',{
 							    padding: '10px',
 							    text: 'Connect with Facebook',
 							    handler : function(cmp){
-							    	/*FB.getLoginStatus(function(response) {
+							    	FB.getLoginStatus(function(response) {
 							    		  if (response.status === 'connected') {
 							    		    console.log('Logged in.');
 							    		    FB.api(
-							    		    	    "/me?fields=id,name,picture",
+							    		    	    "/me?fields=id,name,picture,about,bio,birthday,education,email,gender",
 							    		    	    function (response) {
 							    		    	      if (response && !response.error) {
-							    		    	         handle the result 
+							    		    	         //handle the result   picture?type=large
 							    		    	    	  console.log(response);
+							    		    	    	  Neighborhood.app.getController('MainController').onLoginSuccess(response);
 							    		    	      }
 							    		    	    }
 							    		    	);
 							    		  }
 							    		  else {
-							    		    FB.login();
+							    		    FB.login(function(response) {
+							    		    	   // handle the response
+							    		    	console.log(response);
+							    		    	Neighborhood.app.getController('MainController').onLoginSuccess(response);
+							    		    }, {scope: 'email,user_birthday,user_about_me'});
 							    		  }
-							    		});*/
+							    		});
 							    	
-							    	Neighborhood.app.getController('MainController').onLoginSuccess();
 							    }
 							},
 							{

@@ -4,8 +4,11 @@ Ext.define('Neighborhood.controller.MainController',{
 	
 	
 	index : function(){
-		//Neighborhood.app.getController('loginController').index();
+		Neighborhood.app.getController('loginController').index();
 		
+	},
+	
+	onLoginSuccess : function(){
 		this.mainView = Ext.create('Neighborhood.view.mainView');
 		
 		Ext.Viewport.add(this.mainView);
@@ -24,17 +27,6 @@ Ext.define('Neighborhood.controller.MainController',{
 			scrollPanelDomArr[i].addEventListener("touchmove", function(e){
 		        e.stopPropagation();
 		    }, false);
-		}
-	    
-	},
-	
-	onLoginSuccess : function(){
-		this.mainView = Ext.create('Neighborhood.view.mainView');
-		
-		Ext.Viewport.add(this.mainView);
-		Ext.Viewport.setActiveItem(this.mainView);
-		if(Neighborhood.util.isPhone()){
-			this.switchProfilePanel();
 		}
 	},
 	
