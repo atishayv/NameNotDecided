@@ -38,9 +38,11 @@ Ext.application({
                    'loginController',
                    'mapController'],
      
-     stores :[],
+     stores :['userProfileStore',
+              'timelineStore'],
      
-     models :[],
+     models :['userProfileModel',
+              'timelineModel'],
 
     icon: {
         '57': 'resources/icons/Icon.png',

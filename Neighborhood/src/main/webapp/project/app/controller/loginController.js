@@ -28,6 +28,11 @@ Ext.define('Neighborhood.controller.loginController',{
 		this.loginView.getComponent('loginPanelId').getComponent('facebookAccButton').show();
 		this.loginView.getComponent('loginPanelId').getComponent('loginTextCmpId').show();
 		this.loginView.getComponent('loginPanelId').getComponent('registerTextCmpId').hide();
-	}
+	},
+	
+	onLoginSuccess : function(response){
+		
+		Neighborhood.app.getController('MainController').showMainView();
+	},
 
 });

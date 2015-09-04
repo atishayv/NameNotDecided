@@ -113,7 +113,7 @@ Ext.define('Neighborhood.view.loginView',{
 							    		    	      if (response && !response.error) {
 							    		    	         //handle the result   picture?type=large
 							    		    	    	  console.log(response);
-							    		    	    	  Neighborhood.app.getController('MainController').onLoginSuccess(response);
+							    		    	    	  Neighborhood.app.getController('loginController').onLoginSuccess(response);
 							    		    	      }
 							    		    	    }
 							    		    	);
@@ -122,7 +122,16 @@ Ext.define('Neighborhood.view.loginView',{
 							    		    FB.login(function(response) {
 							    		    	   // handle the response
 							    		    	console.log(response);
-							    		    	Neighborhood.app.getController('MainController').onLoginSuccess(response);
+							    		    	FB.api(
+								    		    	    "/me?fields=id,name,about,bio,birthday,education,email,gender,picture",
+								    		    	    function (response) {
+								    		    	      if (response && !response.error) {
+								    		    	         //handle the result   picture?type=large
+								    		    	    	  console.log(response);
+								    		    	    	  Neighborhood.app.getController('loginController').onLoginSuccess(response);
+								    		    	      }
+								    		    	    }
+								    		    	);
 							    		    }, {scope: 'email,user_birthday,user_about_me'});
 							    		  }
 							    		});

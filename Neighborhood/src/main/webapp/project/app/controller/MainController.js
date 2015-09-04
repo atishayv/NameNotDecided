@@ -8,7 +8,7 @@ Ext.define('Neighborhood.controller.MainController',{
 		
 	},
 	
-	onLoginSuccess : function(){
+	showMainView : function(){
 		this.mainView = Ext.create('Neighborhood.view.mainView');
 		
 		Ext.Viewport.add(this.mainView);
