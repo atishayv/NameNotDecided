@@ -35,9 +35,9 @@ Ext.define('Neighborhood.view.timelineView',{
 								'</div>'+
 							'</div>'+
 		    		   
-		    		   '<div class="timeline">'+
+		    		   '<div class="timeline" id="timelinePostId">'+
 						//<!-- Timeline header -->
-					'<div class="tl-header now">Now</div>'+
+					/*'<div class="tl-header now">Now</div>'+
 
 					'<div class="tl-entry">'+
 						'<div class="tl-time">1h ago</div>'+
@@ -114,7 +114,7 @@ Ext.define('Neighborhood.view.timelineView',{
 							'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'+
 						'</div>'+ // <!-- / .tl-body -->
 					'</div>'+ // <!-- / .tl-entry -->
-
+*/
 				'</div>',
 		       }
 		       ]

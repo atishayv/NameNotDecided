@@ -223,10 +223,58 @@ Ext.define('Neighborhood.controller.MainController',{
 	},
 	
 	gotoDashboard : function(){
-		if(!this.timelineView)
+		var viewExist = true;
+		if(!this.timelineView){
 			this.timelineView = Ext.create('Neighborhood.view.timelineView');
+			viewExist = false;
+		}
 		
-		this.mainView.getComponent('detailPanelId').setActiveItem(this.timelineView)
+		this.mainView.getComponent('detailPanelId').setActiveItem(this.timelineView);
+		
+		//set the information in view
+		if(!viewExist){
+			var timelineStore = Ext.getStore('timelineStore');
+			for(var i=0;i<timelineStore.getCount();i++){
+				if(i==0)
+					$('#timelinePostId')[0].innerHTML += '<div class="tl-header now">Now</div>';
+				else if(i==4)
+					$('#timelinePostId')[0].innerHTML += '<div class="tl-header now">Yesterday</div>';
+				
+				var data = timelineStore.getAt(i).data;
+				
+				var htmlTemplate = '<div class="tl-entry">'+
+					'<div class="tl-time">'+data.time+'</div>'+	//post time
+					'<div class="tl-icon bg-success">'+
+						'<img src="'+data.userPic+'" alt="">'+		//post user pic
+					'</div>'+
+					'<div class="panel tl-body">'+
+						'<h4 class="text-warning" style="display : '+(data.title?'block':'none')+'">'+data.title+'</h4>'+	//post title
+						//'<a href="#">Robert Jang</a> commented on <a href="#">The Article</a>'+	//post description
+						data.description+
+						
+						'<div class="tl-wide text-center" style="padding: 10px;margin-top:15px;margin-bottom: 15px;background: #f1f1f1;display:'+(data.imageUrl?'block':'none')+'">'+	 //post image
+							'<img src="'+data.imageUrl+'" alt="" style="max-height: 150px;max-width: 100%;">'+
+						'</div>'+
+						
+						'<i class="text-muted text-sm" style="display:'+(data.imageComment?'block':'none')+'">'+data.imageComment+'</i>'+	 	//post image comments
+						
+						//comments section
+						'<div style="margin-top: 10px;display:'+(data.commentsArr && data.commentsArr.length>0?'block':'none')+'" class="text-sm">'+
+							'<img src="'+(data.commentsArr[0] && data.commentsArr[0].user_pic ? data.commentsArr[0].user_pic:'')+'" alt="" class="rounded" style=" width: 20px;height: 20px;margin-top: -2px;">&nbsp;&nbsp;'+  	//commented user pic
+							'<a href="#">'+(data.commentsArr[0] && data.commentsArr[0].user_name ? data.commentsArr[0].user_name:'')+'</a> commented '+(data.commentsArr[0] && data.commentsArr[0].time ? data.commentsArr[0].time:'')+			//commented user time and name
+							'<div class="well well-sm" style="margin: 6px 0 0 0;">'+(data.commentsArr[0] && data.commentsArr[0].commentText ? data.commentsArr[0].commentText:'')+  //actual comment
+							'</div>'+
+						'</div>'+
+						
+					'</div>'+
+				'</div>';
+					
+					
+				$('#timelinePostId')[0].innerHTML +=htmlTemplate;
+			}
+		}
+		
+		
 		
 		if(Neighborhood.util.isPhone()){
 			Neighborhood.app.getController('MainController').switchProfilePanel();
