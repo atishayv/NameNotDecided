@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.services.neighbour.bean.User" table="neighbourhood.USER_TABLE">
+		<id column="USER_ID" name="userId" type="java.lang.String" />
+		<property column="FIRST_NAME" name="firstName" type="java.lang.String" />
+		<property column="LAST_NAME" name="lastName" type="java.lang.String" />
+		<property column="PASSWORD" name="password" type="java.lang.String" />
+		<property column="GENDER" name="gender" type="java.lang.String" />
+		<property column="DISPLAY_PIC" name="displayPic" type="java.lang.String" />
+		<property column="EMAIL" name="email" type="java.lang.String" />
+		<property column="PHONE" name="phone" type="java.lang.String" />
+		<property column="CURRENT_ADDRESS" name="currentAddress" type="java.lang.String" />
+		<property column="DOB" name="dob" type="java.lang.String" />
+		<property column="WORKPLACE" name="workplace" type="java.lang.String" />
+		<property column="COLLEGE" name="college" type="java.lang.String" />
+		<property column="SCHOOL" name="school" type="java.lang.String" />
+		<property column="LOCATION" name="location" type="java.lang.String" />
+		<property column="LOCALITY_ID" name="localityId" type="java.lang.String" />
+		<property column="DEACTIVATED" name="deactivated" type="java.lang.String" />
+	</class>
+</hibernate-mapping>
