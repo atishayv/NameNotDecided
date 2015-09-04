@@ -7,7 +7,7 @@
   
   <servlet>
     <servlet-name>MainControllerServlet</servlet-name>
-    <servlet-class>controller.MainControllerServlet</servlet-class>
+    <servlet-class>com.services.neighbour.controller.MainControllerServlet</servlet-class>
   </servlet>
    <servlet-mapping>
     <servlet-name>MainControllerServlet</servlet-name>
