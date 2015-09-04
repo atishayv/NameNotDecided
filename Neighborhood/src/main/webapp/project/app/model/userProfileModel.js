@@ -4,7 +4,7 @@ Ext.define('Neighborhood.model.userProfileModel',{
 	//singleton:true,
     config: {
     	fields: [
-    	        {name: 'userId'},
+    	        {name: 'userId'}, 
  	         	{name: 'password'},
  	         	{name: 'name'},
  	         	{name : 'relationshipStatus'},

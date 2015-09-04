@@ -23,7 +23,7 @@ Ext.define('Neighborhood.view.loginView',{
 		    	   items:[
 							{
 							    xtype: 'fieldset',
-							    itemId : "panelFieldSetID",
+							    itemId : "panelFieldSetID", 
 							    //title : 'Create Account',
 							    items: [
 									{

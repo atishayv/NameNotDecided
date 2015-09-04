@@ -7,7 +7,7 @@ Ext.define('Neighborhood.view.profileView',{
 		cls: 'profileViewCls'+(Neighborhood.util.isPhone() ? ' profileViewPhoneCls' : ''),
 		showAnimation: {
             type: 'slideIn',
-            direction:'right'
+            direction:'right' 
         },
 		listeners:{
              show : function(){

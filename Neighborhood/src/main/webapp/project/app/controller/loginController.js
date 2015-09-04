@@ -11,7 +11,7 @@ Ext.define('Neighborhood.controller.loginController',{
 	},
 	
 	showCreateAccountPanel : function(){
-		this.loginView.getComponent('loginPanelId').addCls('createAccCls');
+		this.loginView.getComponent('loginPanelId').addCls('createAccCls'); 
 		this.loginView.getComponent('loginPanelId').getComponent('panelFieldSetID').getComponent('userNameID').show();
 		this.loginView.getComponent('loginPanelId').getComponent('createAccButton').show();
 		this.loginView.getComponent('loginPanelId').getComponent('loginAccButton').hide();

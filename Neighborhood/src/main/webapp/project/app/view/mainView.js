@@ -12,7 +12,7 @@ Ext.define('Neighborhood.view.mainView',{
 		    	   xtype:"toolbar",
 		    	   cls:"mainViewToolbarCls",
 		    	   itemId:"mainViewToolbarId",
-		    	   docked: 'top',
+		    	   docked: 'top', 
 		    	   html : '<div class="leftToolbarCls"><button onclick="Neighborhood.app.getController(\'MainController\').switchProfilePanel()" type="button" id="main-menu-toggle"><i class="navbar-icon fa fa-bars icon"></i></button>'+
 		    	   '<span class="spanTitle">Neighborhood.com</span></div>'+
 		    	   	'<div class="mainViewToolbarTextCls">'+
