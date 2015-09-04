@@ -45,9 +45,9 @@ Ext.define('Neighborhood.view.mainView',{
 		    	   itemId:"profilePanelId",
 		    	   html : '<div class="profile-block">'+
 						'<div class="panel profile-photo">'+
-						'<img src="resources/images/profilePic.jpg" alt="">'+
+						'<img id="profilePicId" src="resources/images/profilePic.jpg" alt="">'+
 					'</div><br>'+
-					'<div style="font-size: 20px;">Denise Steiner</div>'+
+					'<div id="profileNameId" style="font-size: 20px;">Denise Steiner</div>'+
 				'</div>'+
 			
 					'<ul class="navigation enableTouchScroll">'+

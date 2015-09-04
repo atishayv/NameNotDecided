@@ -245,7 +245,9 @@
 .mainViewCls .profilePanelCls .x-innerhtml .profile-block .profile-photo img{
     display: block;
     max-width: 100%;
-    border-radius: 999999px;	
+    border-radius: 999999px;
+    height: 180px;
+    width: 180px;	
 }
 .mainViewCls.mainViewPhoneCls .profilePanelCls .x-innerhtml .profile-block .profile-photo img{
 	height : 100%;

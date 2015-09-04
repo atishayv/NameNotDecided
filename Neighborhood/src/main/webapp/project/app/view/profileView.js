@@ -20,7 +20,7 @@ Ext.define('Neighborhood.view.profileView',{
 		    	   xtype : 'panel',
 		    	   cls : 'aboutPanelCls',
 		    	   itemId:'aboutPanelId',
-		    	   html : '<div class="pmb-block">'+
+		    	   html : /*'<div class="pmb-block">'+
 		                       '<div class="pmbb-header">'+
 		               '<h2><i class="fa fa-file"></i> Summary</h2>'+
 		               
@@ -53,7 +53,8 @@ Ext.define('Neighborhood.view.profileView',{
 		                   '</div>'+
 		               '</div>'+
 		           '</div>'+
-		       '</div>'+
+		       '</div>'+*/
+		    	//basic information section
 		       '<div class="pmb-block">'+
                                 '<div class="pmbb-header">'+
                                     '<h2><i class="fa fa-user"></i> Basic Information</h2>'+
@@ -76,19 +77,19 @@ Ext.define('Neighborhood.view.profileView',{
                                     '<div class="pmbb-view">'+
                                         '<dl class="dl-horizontal">'+
                                             '<dt>Full Name</dt>'+
-                                            '<dd>Mallinda Hollaway</dd>'+
+                                            '<dd id="basicInfoNameId">Mallinda Hollaway</dd>'+
                                         '</dl>'+
                                         '<dl class="dl-horizontal">'+
                                             '<dt>Gender</dt>'+
-                                            '<dd>Female</dd>'+
+                                            '<dd id="basicInfoGenderId">Female</dd>'+
                                         '</dl>'+
                                         '<dl class="dl-horizontal">'+
                                             '<dt>Birthday</dt>'+
-                                            '<dd>June 23, 1990</dd>'+
+                                            '<dd id="basicInfoBirthdayId">June 23, 1990</dd>'+
                                         '</dl>'+
                                         '<dl class="dl-horizontal">'+
                                             '<dt>Martial Status</dt>'+
-                                            '<dd>Single</dd>'+
+                                            '<dd id="basicInfoRelStatusId">Single</dd>'+
                                         '</dl>'+
                                     '</div>'+
                                     
@@ -118,7 +119,7 @@ Ext.define('Neighborhood.view.profileView',{
                                             '<dt class="p-t-10">Birthday</dt>'+
                                             '<dd>'+
                                                 '<div class="dtp-container dropdown fg-line">'+
-                                                    '<input type="text" class="form-control date-picker" data-toggle="dropdown" placeholder="Click here..." aria-expanded="false">'+
+                                                    '<input type="date" class="form-control date-picker" data-toggle="dropdown" aria-expanded="false">'+
                                                 '</div>'+
                                             '</dd>'+
                                         '</dl>'+
@@ -142,6 +143,7 @@ Ext.define('Neighborhood.view.profileView',{
                                     '</div>'+
                                 '</div>'+
                             '</div>'+
+                            //contact information section
                             '<div class="pmb-block">'+
                                 '<div class="pmbb-header">'+
                                     '<h2><i class="fa fa-phone"></i> Contact Information</h2>'+
@@ -168,15 +170,7 @@ Ext.define('Neighborhood.view.profileView',{
                                         '</dl>'+
                                         '<dl class="dl-horizontal">'+
                                             '<dt>Email Address</dt>'+
-                                            '<dd>malinda.h@gmail.com</dd>'+
-                                        '</dl>'+
-                                        '<dl class="dl-horizontal">'+
-                                            '<dt>Twitter</dt>'+
-                                            '<dd>@malinda</dd>'+
-                                        '</dl>'+
-                                        '<dl class="dl-horizontal">'+
-                                            '<dt>Skype</dt>'+
-                                            '<dd>malinda.hollaway</dd>'+
+                                            '<dd id="basicInfoMailId">malinda.h@gmail.com</dd>'+
                                         '</dl>'+
                                     '</div>'+
                                     
@@ -197,22 +191,6 @@ Ext.define('Neighborhood.view.profileView',{
                                                 '</div>'+
                                             '</dd>'+
                                         '</dl>'+
-                                        '<dl class="dl-horizontal">'+
-                                            '<dt class="p-t-10">Twitter</dt>'+
-                                            '<dd>'+
-                                                '<div class="fg-line">'+
-                                                    '<input type="text" class="form-control" placeholder="eg. @malinda">'+
-                                                '</div>'+
-                                            '</dd>'+
-                                        '</dl>'+
-                                        '<dl class="dl-horizontal">'+
-                                            '<dt class="p-t-10">Skype</dt>'+
-                                            '<dd>'+
-                                                '<div class="fg-line">'+
-                                                    '<input type="text" class="form-control" placeholder="eg. malinda.hollaway">'+
-                                                '</div>'+
-                                            '</dd>'+
-                                        '</dl>'+
                                         
                                         '<div class="m-t-30">'+
                                             '<button class="btn btn-primary btn-sm waves-effect">Save</button>'+
@@ -221,6 +199,62 @@ Ext.define('Neighborhood.view.profileView',{
                                     '</div>'+
                                 '</div>'+
                             '</div>'+
+                            
+                            //education and workplace section
+                            '<div class="pmb-block">'+
+                            '<div class="pmbb-header">'+
+                            '<h2><i class="fa fa-building"></i> Education and Workplace</h2>'+
+                            '<ul class="actions"><li class="dropdown"><a href="" data-toggle="dropdown">'+
+                            '<i class="fa fa-bars"></i></a>'+
+                            '<ul class="dropdown-menu dropdown-menu-right"><li>'+
+                            '<a data-pmb-action="edit" onclick="Neighborhood.app.getController(\'profileController\').enableEdit()">Edit</a>'+
+                            '</li></ul></li></ul></div>'+
+                            '<div class="pmbb-body workEducation">'+
+                            	'<div class="pmbb-view workEducation">'+
+	                            	'<dl class="dl-horizontal">'+
+		                                '<dt>School</dt>'+
+		                                '<dd id="basicInfoSchoolId">Lions School</dd>'+
+		                            '</dl>'+
+			                            '<dl class="dl-horizontal">'+
+		                                '<dt>College</dt>'+
+		                                '<dd id="basicInfoCollegeId">Inderprastha Engineering College</dd>'+
+		                            '</dl>'+
+		                            '<dl class="dl-horizontal">'+
+		                                '<dt>Workplace</dt>'+
+		                                '<dd id="basicInfoWorkId">Openstream Technologies Pvt Ltd</dd>'+
+		                            '</dl>'+
+                            	'</div>'+
+                            
+	                            '<div class="pmbb-edit workEducation">'+
+		                            '<dl class="dl-horizontal">'+
+			                            '<dt class="p-t-10">School</dt>'+
+			                            '<dd>'+
+			                                '<div class="fg-line">'+
+			                                    '<input type="text" class="form-control" placeholder="eg. your school name">'+
+			                                '</div>'+
+			                            '</dd>'+
+			                        '</dl>'+
+			                        '<dl class="dl-horizontal">'+
+			                            '<dt class="p-t-10">College</dt>'+
+			                            '<dd>'+
+			                                '<div class="fg-line">'+
+			                                    '<input type="text" class="form-control" placeholder="eg. your college name">'+
+			                                '</div>'+
+			                            '</dd>'+
+			                        '</dl>'+
+			                        '<dl class="dl-horizontal">'+
+			                            '<dt class="p-t-10">Workplace</dt>'+
+			                            '<dd>'+
+			                                '<div class="fg-line">'+
+			                                    '<input type="text" class="form-control" placeholder="eg. your workplace">'+
+			                                '</div>'+
+			                            '</dd>'+
+			                        '</dl>'+
+			                    '</div>'+
+			                '</div>'+
+                            '</div>'+
+                            
+                            //location information section
                             '<div class="pmb-block">'+
                             '<div class="pmbb-header">'+
                             '<h2><i class="fa fa-map-marker"></i> Location</h2>'+

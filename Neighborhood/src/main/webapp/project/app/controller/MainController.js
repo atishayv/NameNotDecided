@@ -5,6 +5,7 @@ Ext.define('Neighborhood.controller.MainController',{
 	
 	index : function(){
 		Neighborhood.app.getController('loginController').index();
+		//this.showMainView();
 		
 	},
 	
@@ -226,25 +227,35 @@ Ext.define('Neighborhood.controller.MainController',{
 			this.timelineView = Ext.create('Neighborhood.view.timelineView');
 		
 		this.mainView.getComponent('detailPanelId').setActiveItem(this.timelineView)
-		/*Neighborhood.app.getController('MainController').mainView.getComponent('detailPanelId').animateActiveItem(0,{
-            type: 'slide',
-            direction: 'left'
-		});*/
+		
 		if(Neighborhood.util.isPhone()){
 			Neighborhood.app.getController('MainController').switchProfilePanel();
 		}
 	},
 	
 	gotoProfileView : function(){
-		if(!this.profileView)
+		var viewExist = true;
+		if(!this.profileView){
 			this.profileView = Ext.create('Neighborhood.view.profileView');
+			viewExist = false;
+		}
+			
 		
 		this.mainView.getComponent('detailPanelId').setActiveItem(this.profileView);
 		
-		/*Neighborhood.app.getController('MainController').mainView.getComponent('detailPanelId').animateActiveItem(1,{
-            type: 'slide',
-            direction: 'left'
-		});*/
+		//set the information in view
+		if(!viewExist){
+			var userData = Ext.getStore('userProfileStore').getAt(0).data; 
+			$('#basicInfoNameId')[0].innerText = userData.name;
+			$('#basicInfoGenderId')[0].innerText = userData.gender;
+			$('#basicInfoBirthdayId')[0].innerText = userData.birthday;
+			$('#basicInfoRelStatusId')[0].innerText = userData.relationshipStatus;
+			$('#basicInfoMailId')[0].innerText = userData.mailId;
+			$('#basicInfoSchoolId')[0].innerText = userData.school;
+			$('#basicInfoCollegeId')[0].innerText = userData.college;
+			$('#basicInfoWorkId')[0].innerText = userData.workplace;
+		}
+		
 		if(Neighborhood.util.isPhone()){
 			Neighborhood.app.getController('MainController').switchProfilePanel();
 		}
@@ -262,10 +273,6 @@ Ext.define('Neighborhood.controller.MainController',{
 		
 		this.mainView.getComponent('detailPanelId').setActiveItem(this.contactView)
 		
-		/*Neighborhood.app.getController('MainController').mainView.getComponent('detailPanelId').animateActiveItem(2,{
-            type: 'slide',
-            direction: 'left'
-		});*/
 		if(Neighborhood.util.isPhone()){
 			Neighborhood.app.getController('MainController').switchProfilePanel();
 		}
@@ -283,10 +290,6 @@ Ext.define('Neighborhood.controller.MainController',{
 		
 		this.mainView.getComponent('detailPanelId').setActiveItem(this.eventView)
 		
-		/*Neighborhood.app.getController('MainController').mainView.getComponent('detailPanelId').animateActiveItem(3,{
-            type: 'slide',
-            direction: 'left'
-		});*/
 		if(Neighborhood.util.isPhone()){
 			Neighborhood.app.getController('MainController').switchProfilePanel();
 		}
@@ -304,10 +307,6 @@ Ext.define('Neighborhood.controller.MainController',{
 		
 		this.mainView.getComponent('detailPanelId').setActiveItem(this.mapView)
 		
-		/*Neighborhood.app.getController('MainController').mainView.getComponent('detailPanelId').animateActiveItem(3,{
-            type: 'slide',
-            direction: 'left'
-		});*/
 		if(Neighborhood.util.isPhone()){
 			Neighborhood.app.getController('MainController').switchProfilePanel();
 		}

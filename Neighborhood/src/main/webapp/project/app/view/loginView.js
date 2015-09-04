@@ -108,10 +108,9 @@ Ext.define('Neighborhood.view.loginView',{
 							    		  if (response.status === 'connected') {
 							    		    console.log('Logged in.');
 							    		    FB.api(
-							    		    	    "/me?fields=id,name,picture,about,bio,birthday,education,email,gender",
+							    		    	    "/me?fields=id,name,picture,about,bio,birthday,education,email,gender,first_name,last_name,relationship_status,work",
 							    		    	    function (response) {
 							    		    	      if (response && !response.error) {
-							    		    	         //handle the result   picture?type=large
 							    		    	    	  console.log(response);
 							    		    	    	  Neighborhood.app.getController('loginController').onLoginSuccess(response);
 							    		    	      }
@@ -123,16 +122,15 @@ Ext.define('Neighborhood.view.loginView',{
 							    		    	   // handle the response
 							    		    	console.log(response);
 							    		    	FB.api(
-								    		    	    "/me?fields=id,name,about,bio,birthday,education,email,gender,picture",
+								    		    	    "/me?fields=id,name,about,bio,birthday,education,email,gender,picture,first_name,last_name,relationship_status,work",
 								    		    	    function (response) {
 								    		    	      if (response && !response.error) {
-								    		    	         //handle the result   picture?type=large
 								    		    	    	  console.log(response);
 								    		    	    	  Neighborhood.app.getController('loginController').onLoginSuccess(response);
 								    		    	      }
 								    		    	    }
 								    		    	);
-							    		    }, {scope: 'email,user_birthday,user_about_me'});
+							    		    }, {scope: 'email,user_birthday,user_about_me,user_education_history,user_relationships,user_work_history'});
 							    		  }
 							    		});
 							    	
