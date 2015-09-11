@@ -65,6 +65,9 @@
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;	
 }
+.profileViewCls .aboutPanelCls .pmb-block .pmbb-body .pmbb-view .dl-horizontal dd{
+	height: 1.42857143em;
+}
 .profileViewCls .aboutPanelCls .pmb-block .pmbb-body .pmbb-edit{
     position: relative;
     z-index: 1;

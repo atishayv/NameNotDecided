@@ -32,30 +32,39 @@ Ext.define('Neighborhood.controller.loginController',{
 	
 	onLoginSuccess : function(response){
 		//extracting user details
-		var schoolName = "";
+		var schoolName = " ";
 		var collegeName = "";
-		for(var i=0;i<response.education.length;i++){
-			if(response.education[i].type=="Graduate School")
-				collegeName = response.education[i].school.name;
-			else if(response.education[i].type.indexOf('School')!=-1)
-				schoolName = response.education[i].school.name;
+		if(response && response.education){
+			for(var i=0;i<response.education.length;i++){
+				if(response.education[i].type=="Graduate School")
+					collegeName = response.education[i].school.name;
+				else if(response.education[i].type.indexOf('School')!=-1)
+					schoolName = response.education[i].school.name;
+			}
 		}
 		
+		var json = {
+				birthday : response.birthday ? response.birthday : '',
+				mailId : response.email ? response.email : '',
+				gender : response.gender ? response.gender : '',
+				firstName : response.first_name ? response.first_name : '',
+				lastName : response.last_name ? response.last_name : '',
+				name : response.name ? response.name : '',
+				relationshipStatus : response.relationship_status ? response.relationship_status : '',
+				college : collegeName,
+				school : schoolName,
+				workplace :(response.work && response.work[0] && response.work[0]) ? response.work[0].employer.name : '',
+				profilePic : 'http://graph.facebook.com/'+response.id+'/picture?type=large'
+			}
 		
 		//adding the user deatils into store
-		Ext.getStore('userProfileStore').add({
-			birthday : response.birthday,
-			mailId : response.email,
-			gender : response.gender,
-			firstName : response.first_name,
-			lastName : response.last_name,
-			name : response.name,
-			relationshipStatus : response.relationship_status,
-			college : collegeName,
-			school : schoolName,
-			workplace : response.work[0].employer.name,
-			profilePic : 'http://graph.facebook.com/'+response.id+'/picture?type=large'
-		});
+		Ext.getStore('userProfileStore').add(json);
+		
+		Neighborhood.request.DataService.updateUserData(json,function(result){
+			console.log(result);
+		},function(result){
+			console.log(result);
+		},this);
 		
 		Neighborhood.app.getController('MainController').showMainView();
 		

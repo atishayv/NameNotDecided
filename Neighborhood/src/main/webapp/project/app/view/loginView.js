@@ -63,27 +63,66 @@ Ext.define('Neighborhood.view.loginView',{
 							    hidden : true,
 							    handler : function(cmp){
 							    	
-							    	/*var request1 = { userName:"Ayush",password:"ayush",email:"ayush@ayush.com", action:"newUserRegister" }; 
+							    	var userName = cmp.up().getComponent('panelFieldSetID').getComponent('userNameID').getValue();
+							    	var emailId = cmp.up().getComponent('panelFieldSetID').getComponent('userEmailID').getValue();
+							    	var password = cmp.up().getComponent('panelFieldSetID').getComponent('passwordID').getValue();
 							    	
-							    	var jsonString1 = JSON.stringify({			
-						    			requestObject : request1
-						    		});
 							    	
-							    	console.log(jsonString1);
-							    	
-							    	$.ajax({
-										url : "http://192.168.21.193:8093/Neighborhood/NeighborhoodProxy",
-										type : "POST",
-										data 	: jsonString1,
-										dataType : "json",
-										success : function(data) {
-											console.log(data);
-										},
-										error : function(data) {
-											console.log(data);
-										}
-									});*/
-							    	Neighborhood.request.DataService.newUserRegister();
+							    	var emailFilter = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+								    var illegalChars= /[\(\)\<\>\,\;\:\\\"\[\]]/ ;
+							    	if(userName=="" || userName==null || emailId=="" || emailId==null ||password=="" || password==null){
+							    		Ext.Msg.show({
+								             title : 'Error',
+											 message: 'Please enter all the fields correctly',
+								             cls: 'alertMsgCls',
+								             buttons: Ext.MessageBox.OK,
+										});
+							    	}else if(!emailFilter.test(emailId) || emailId.match(illegalChars)){
+							    		Ext.Msg.show({
+								             title : 'Error',
+											 message: 'Please enter a valid email-id',
+								             cls: 'alertMsgCls',
+								             buttons: Ext.MessageBox.OK,
+										});
+							    	}else{
+							    		Neighborhood.request.DataService.newUserRegister(userName,emailId,password,function(result){
+							    			console.log("success"+result);
+							    			if(result == "User already exist"){
+							    				Ext.Msg.show({
+										             title : 'Error',
+													 message: 'User with same creadentials already exist. Please try again',
+										             cls: 'alertMsgCls',
+										             buttons: Ext.MessageBox.OK,
+												});
+							    			}else if(result == "Successfully inserted user in DB"){
+							    				Ext.Msg.show({
+										             title : 'Info',
+													 message: 'Successfully created user. Login again to continue..',
+										             cls: 'alertMsgCls',
+										             buttons: Ext.MessageBox.OK,
+										             fn: function(buttonId) {
+										            	 //switch to login view
+										            	 Neighborhood.app.getController('loginController').showLoginPanel();
+										             }
+												});
+							    			}else{
+							    				Ext.Msg.show({
+										             title : 'Error',
+													 message: 'Something went wrong. Please try again.',
+										             cls: 'alertMsgCls',
+										             buttons: Ext.MessageBox.OK,
+												});
+							    			}
+							    		},function(result){
+							    			console.log(result);
+							    			Ext.Msg.show({
+									             title : 'Error',
+												 message: 'Something went wrong. Please try again.',
+									             cls: 'alertMsgCls',
+									             buttons: Ext.MessageBox.OK,
+											});
+							    		},this);
+							    	}
 							    	
 							    }
 							},
@@ -94,7 +133,60 @@ Ext.define('Neighborhood.view.loginView',{
 							    cls : 'loginBtnCls',
 							    padding: '10px',
 							    text: 'Sign In',
-							    handler : function(cmp){}
+							    handler : function(cmp){
+							    	var emailId = cmp.up().getComponent('panelFieldSetID').getComponent('userEmailID').getValue();
+							    	var password = cmp.up().getComponent('panelFieldSetID').getComponent('passwordID').getValue();
+							    	var emailFilter = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+								    var illegalChars= /[\(\)\<\>\,\;\:\\\"\[\]]/ ;
+							    	if(emailId=="" || emailId==null ||password=="" || password==null){
+							    		Ext.Msg.show({
+								             title : 'Error',
+											 message: 'Please enter all the fields correctly',
+								             cls: 'alertMsgCls',
+								             buttons: Ext.MessageBox.OK,
+										});
+							    	}else if(!emailFilter.test(emailId) || emailId.match(illegalChars)){
+							    		Ext.Msg.show({
+								             title : 'Error',
+											 message: 'Please enter a valid email-id',
+								             cls: 'alertMsgCls',
+								             buttons: Ext.MessageBox.OK,
+										});
+							    	}else{
+							    		Neighborhood.request.DataService.doLogin(emailId,password,function(result){
+							    			if(result=="User does not exist"){
+							    				Ext.Msg.show({
+										             title : 'Error',
+													 message: 'Please enter a valid emailId or password',
+										             cls: 'alertMsgCls',
+										             buttons: Ext.MessageBox.OK,
+												});
+							    			}else{
+							    				result = JSON.parse(result);
+							    				if(result && result.length>0){
+							    					if(result[0].locality_id<1){
+							    						//adding the user deatils into store
+							    						Ext.getStore('userProfileStore').add({
+							    							mailId : result[0].mail_id,
+							    							firstName : result[0].first_name,
+							    							name : result[0].first_name,
+							    							userId : result[0].user_id
+							    						});
+							    						Neighborhood.app.getController('MainController').showMainView(true);
+							    					}
+							    				}
+							    			}
+							    		},function(result){
+							    			console.log(result);
+							    			Ext.Msg.show({
+									             title : 'Error',
+												 message: 'Something went wrong. Please try again.',
+									             cls: 'alertMsgCls',
+									             buttons: Ext.MessageBox.OK,
+											});
+							    		},this);
+							    	}
+							    }
 							},
 							{
 							    xtype: 'button',
@@ -112,7 +204,13 @@ Ext.define('Neighborhood.view.loginView',{
 							    		    	    function (response) {
 							    		    	      if (response && !response.error) {
 							    		    	    	  console.log(response);
-							    		    	    	  Neighborhood.app.getController('loginController').onLoginSuccess(response);
+							    		    	    	  Neighborhood.request.DataService.newUserRegister(response.name,response.email,'',function(result){
+							    		    	    		 console.log(result); 
+							    		    	    		 Neighborhood.app.getController('loginController').onLoginSuccess(response);
+							    		    	    	  },function(result){
+							    		    	    		  console.log(result); 
+							    		    	    	  });
+							    		    	    	  
 							    		    	      }
 							    		    	    }
 							    		    	);
@@ -126,7 +224,12 @@ Ext.define('Neighborhood.view.loginView',{
 								    		    	    function (response) {
 								    		    	      if (response && !response.error) {
 								    		    	    	  console.log(response);
-								    		    	    	  Neighborhood.app.getController('loginController').onLoginSuccess(response);
+								    		    	    	  Neighborhood.request.DataService.newUserRegister(response.name,response.email,'',function(result){
+								    		    	    		 console.log(result); 
+								    		    	    		 Neighborhood.app.getController('loginController').onLoginSuccess(response);
+								    		    	    	  },function(result){
+								    		    	    		  console.log(result); 
+								    		    	    	  });
 								    		    	      }
 								    		    	    }
 								    		    	);

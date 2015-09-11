@@ -9,7 +9,7 @@ Ext.define('Neighborhood.controller.MainController',{
 		
 	},
 	
-	showMainView : function(){
+	showMainView : function(showProfileView){
 		this.mainView = Ext.create('Neighborhood.view.mainView'); 
 		
 		Ext.Viewport.add(this.mainView);
@@ -21,7 +21,10 @@ Ext.define('Neighborhood.controller.MainController',{
             }
         }, this.mainView.getComponent('detailPanelId'));
 		
-		this.gotoDashboard();
+		if(!showProfileView)
+			this.gotoDashboard();
+		else
+			this.gotoProfileView();
 		
 		scrollPanelDomArr = $('.enableTouchScroll');
 		for(var i=0;i<scrollPanelDomArr.length;i++){

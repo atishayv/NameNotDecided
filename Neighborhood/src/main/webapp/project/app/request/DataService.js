@@ -8,20 +8,31 @@ Ext.define('Neighborhood.request.DataService',{
 	singleton: true,
 
 	
-	newUserRegister : function(userName,password,mailId,userCode,successCallBk,failureCallBk,scope){
+	newUserRegister : function(userName,emailId,password,successCallBk,failureCallBk,scope){
+		var reqObj = { 
+				userName:userName,
+				password:password,
+				email:emailId, 
+				action:"newUserRegister" 
+			};
+		Neighborhood.request.Service.makeServerRequest(reqObj,'POST', successCallBk, failureCallBk, scope);
+	},
+	
+	doLogin : function(emailId,password,successCallBk,failureCallBk,scope){
+		var reqObj = { 
+				password:password,
+				email:emailId, 
+				action:"login" 
+			};
+		Neighborhood.request.Service.makeServerRequest(reqObj,'POST', successCallBk, failureCallBk, scope);
+	},
+	
+	updateUserData : function(data,successCallBk,failureCallBk,scope){
 		var reqObj = {
-				requestObject : { userName:"Ayush",
-									password:"ayush",
-									email:"ayush@ayush.com", 
-									action:"newUserRegister" 
-								}
-				/*action:'createNewUser',
-				userName : userName,
-				password : password,
-				mailId : mailId,
-				userCode : userCode,*/
-		};
-		Neighborhood.request.Service.makeServerRequest(reqObj,'POST', successCallBk, failureCallBk, this);
+				action : 'updateUserData',
+				data : data
+		}
+		Neighborhood.request.Service.makeServerRequest(reqObj,'POST', successCallBk, failureCallBk, scope);
 	},
 	
 });
