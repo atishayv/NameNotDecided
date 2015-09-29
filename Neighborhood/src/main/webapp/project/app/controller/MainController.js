@@ -367,6 +367,16 @@ Ext.define('Neighborhood.controller.MainController',{
 		        e.stopPropagation();
 		    }, false);
 		}
+	},
+	
+	changePostAreaFormat : function(cmp,category){
+		$('.mainViewCls .detailPanelCls .x-innerhtml .tab-nav .waves-effect.active').removeClass('active');
+		$(cmp).addClass('active');
+		if(category == 'Issue'){
+			$('.mainViewCls .detailPanelCls .x-innerhtml .quick-update .title')[0].style.display="block";
+		}else{
+			$('.mainViewCls .detailPanelCls .x-innerhtml .quick-update .title')[0].style.display="none";
+		}
 	}
 	
 	

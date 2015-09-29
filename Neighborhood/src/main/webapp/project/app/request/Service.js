@@ -7,7 +7,7 @@ Ext.define('Neighborhood.request.Service',{
 
 	
 	//serviceUrl must be deploymentLocation + war name + servlet name
-	serviceUrl:'http://192.168.21.193:8093'+'/Neighborhood/requestServlet',  //service Url
+	serviceUrl:'http://localhost:8080'+'/Neighborhood/requestServlet',  //service Url
 	//serviceUrl:'http://192.168.21.193:8081'+'/CodeCompiler/requestServer',  //service Url
 
 	

@@ -415,12 +415,71 @@
     background: #fff;
     border-radius: 4px;
     width: 80%;
-    height: 150px;
+    height: 180px;
     margin: 0 auto;
     margin-bottom: 45px !important;	
 }
 .mainViewCls.mainViewPhoneCls .detailPanelCls .x-innerhtml .quick-update{
 	width : 100%;
+}
+.mainViewCls .detailPanelCls .x-innerhtml .tab-nav{
+	outline: none;
+    list-style: none;
+    padding: 0;
+    white-space: nowrap;
+    margin: 0 auto;
+    width : 80%;
+    overflow: hidden;
+    box-shadow: inset 0 -2px 0 0 #eeeeee;
+}
+.mainViewCls .detailPanelCls .x-innerhtml .tab-nav .waves-effect{
+    display: table-cell;
+    width: 1%;
+    text-align: center;
+    vertical-align: top;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;	
+}
+.mainViewCls .detailPanelCls .x-innerhtml .tab-nav .waves-effect.active{
+	border-bottom: 1px solid purple;
+}
+.mainViewCls .detailPanelCls .x-innerhtml .tab-nav .waves-effect span{
+	    padding: 15px;
+    display: inline-block;
+    color: #7a7a7a;
+    position: relative;
+    width: 100%;
+    -webkit-transition: all;
+    -o-transition: all;
+    transition: all;
+    -webkit-transition-duration: 250ms;
+    transition-duration: 250ms;
+    font-weight: 500;
+}
+.mainViewCls .detailPanelCls .x-innerhtml .tab-nav .waves-effect span:after{
+	content: "";
+    height: 2px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    -webkit-transition: all;
+    -o-transition: all;
+    transition: all;
+    -webkit-transition-duration: 250ms;
+    transition-duration: 250ms;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
 }
 .mainViewCls .detailPanelCls .x-innerhtml .quick-update textarea{
     border-radius: 0px;
@@ -428,7 +487,7 @@
     font-size: 12px !important;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-    border: 1px solid #ddd !important;	
+    border-bottom: 1px solid #ddd !important;	
 }
 .mainViewCls .detailPanelCls .x-innerhtml .quick-update .qu-buttons{
     padding: 7px 10px;

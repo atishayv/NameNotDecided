@@ -20,8 +20,16 @@ Ext.define('Neighborhood.view.timelineView',{
 		    	   xtype : 'panel',
 		    	   cls : 'timelinePanelCls',
 		    	   itemId:"timelinePanelId",
-		    	   html : '<div class="quick-update">'+
-								'<textarea rows="6" class="form-control" placeholder="Type Something..."></textarea>'+
+		    	   html : '<ul class="tab-nav tn-justified" tabindex="1">'+
+			    		   '<li onclick="Neighborhood.app.getController(\'MainController\').changePostAreaFormat(this,\'Feeds\')" class="active waves-effect"><span>Post feed</span></li>'+ 
+			    		   '<li onclick="Neighborhood.app.getController(\'MainController\').changePostAreaFormat(this,\'Issue\')" class="waves-effect"><span>Raise society issue</span></li>'+ 
+			    		   '<li onclick="Neighborhood.app.getController(\'MainController\').changePostAreaFormat(this,\'Question\')" class="waves-effect"><span>Ask a question</span></li>'+ 
+			    		   '<li onclick="Neighborhood.app.getController(\'MainController\').changePostAreaFormat(this,\'Info\')" class="waves-effect"><span>Provide information</span></li>'+
+			    		   '</ul>'+
+		    		   
+		    		   '<div class="quick-update">'+
+		    		   			'<textarea rows="1" class="form-control title" style="display:none;" placeholder="Write a topic..."></textarea>'+
+								'<textarea rows="6" class="form-control desc" placeholder="Type Something..."></textarea>'+
 								'<div class="qu-buttons">'+
 									'<div class="pull-left">'+
 										'<a href="#"><i class="fa fa-paperclip"></i></a> &nbsp;'+
