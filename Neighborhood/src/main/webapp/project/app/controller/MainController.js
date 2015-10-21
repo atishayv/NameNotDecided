@@ -296,15 +296,41 @@ Ext.define('Neighborhood.controller.MainController',{
 		
 		//set the information in view
 		if(!viewExist){
-			var userData = Ext.getStore('userProfileStore').getAt(0).data; 
-			$('#basicInfoNameId')[0].innerText = userData.name;
-			$('#basicInfoGenderId')[0].innerText = userData.gender;
-			$('#basicInfoBirthdayId')[0].innerText = userData.birthday;
-			$('#basicInfoRelStatusId')[0].innerText = userData.relationshipStatus;
-			$('#basicInfoMailId')[0].innerText = userData.mailId;
-			$('#basicInfoSchoolId')[0].innerText = userData.school;
-			$('#basicInfoCollegeId')[0].innerText = userData.college;
-			$('#basicInfoWorkId')[0].innerText = userData.workplace;
+			var userData = Ext.getStore('userProfileStore').getAt(0).data;
+			var gender="Enter your gender";
+			if(userData.gender=="m")
+				gender = "Male";
+			else if(userData.gender=="f")
+				gender = "Female";
+			
+			
+			$('#basic_info_name_id')[0].innerText = (userData.first_name ? userData.first_name+" " : "") + (userData.last_name ? userData.last_name : "");
+			$('#basic_info_name_edit_id')[0].value = $('#basic_info_name_id')[0].innerText;
+			
+			$('#basic_info_gender_id')[0].innerText = gender;
+			$('#basic_info_gender_edit_id')[0].value = gender;
+			
+			$('#basic_info_birthday_id')[0].innerText = userData.DOB ? userData.DOB : "Provide your date of birth";
+			$('#basic_info_birthday_edit_id')[0].value = userData.DOB ? userData.DOB : "Provide your date of birth";
+			
+			$('#basic_info_rel_status_id')[0].innerText = userData.relationship_status ? userData.relationship_status : "Enter your relationship status";
+			$('#basic_info_rel_status_edit_id')[0].value = userData.relationship_status ? userData.relationship_status : "Single";
+			
+			$('#basic_info_contact_number_id')[0].innerText = userData.contact_number ? userData.contact_number : "Provide your phone number";
+			$('#basic_info_contact_number_edit_id')[0].value = userData.contact_number ? userData.contact_number : "Provide your phone number";
+			
+			$('#basic_info_mail_id')[0].innerText = userData.mail_id ? userData.mail_id : "Provide your mail Id";
+			$('#basic_info_mail_edit_id')[0].value = userData.mail_id ? userData.mail_id : "Provide your mail Id";
+			
+			$('#basic_info_school_id')[0].innerText = userData.school ? userData.school : "Where did you go to school?";
+			$('#basic_info_school_edit_id')[0].value = userData.school ? userData.school : "Where did you go to school?";
+			
+			$('#basic_info_college_id')[0].innerText = userData.college ? userData.college : "Where did you go to college?";
+			$('#basic_info_college_edit_id')[0].value = userData.college ? userData.college : "Where did you go to college?";
+			
+			$('#basic_info_work_id')[0].innerText = userData.workplace ? userData.workplace : "Provide your work place name";
+			$('#basic_info_work_edit_id')[0].value = userData.workplace ? userData.workplace : "Provide your work place name";
+			
 		}
 		
 		if(Neighborhood.util.isPhone()){

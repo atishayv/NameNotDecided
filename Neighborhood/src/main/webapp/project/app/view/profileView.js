@@ -77,19 +77,19 @@ Ext.define('Neighborhood.view.profileView',{
                                     '<div class="pmbb-view">'+
                                         '<dl class="dl-horizontal">'+
                                             '<dt>Full Name</dt>'+
-                                            '<dd id="basicInfoNameId">Mallinda Hollaway</dd>'+
+                                            '<dd id="basic_info_name_id">Enter your name</dd>'+
                                         '</dl>'+
                                         '<dl class="dl-horizontal">'+
                                             '<dt>Gender</dt>'+
-                                            '<dd id="basicInfoGenderId">Female</dd>'+
+                                            '<dd id="basic_info_gender_id">Enter your gender</dd>'+
                                         '</dl>'+
                                         '<dl class="dl-horizontal">'+
                                             '<dt>Birthday</dt>'+
-                                            '<dd id="basicInfoBirthdayId">June 23, 1990</dd>'+
+                                            '<dd id="basic_info_birthday_id">Provide your date of birth</dd>'+
                                         '</dl>'+
                                         '<dl class="dl-horizontal">'+
                                             '<dt>Martial Status</dt>'+
-                                            '<dd id="basicInfoRelStatusId">Single</dd>'+
+                                            '<dd id="basic_info_rel_status_id">Enter your relationship status</dd>'+
                                         '</dl>'+
                                     '</div>'+
                                     
@@ -98,7 +98,7 @@ Ext.define('Neighborhood.view.profileView',{
                                             '<dt class="p-t-10">Full Name</dt>'+
                                             '<dd>'+
                                                 '<div class="fg-line">'+
-                                                    '<input type="text" class="form-control" placeholder="eg. Mallinda Hollaway">'+
+                                                    '<input id="basic_info_name_edit_id" type="text" class="form-control" placeholder="">'+
                                                 '</div>'+
                                                 
                                             '</dd>'+
@@ -107,7 +107,7 @@ Ext.define('Neighborhood.view.profileView',{
                                             '<dt class="p-t-10">Gender</dt>'+
                                             '<dd>'+
                                                 '<div class="fg-line">'+
-                                                    '<select class="form-control">'+
+                                                    '<select id="basic_info_gender_edit_id" class="form-control">'+
                                                         '<option>Male</option>'+
                                                         '<option>Female</option>'+
                                                         '<option>Other</option>'+
@@ -119,7 +119,7 @@ Ext.define('Neighborhood.view.profileView',{
                                             '<dt class="p-t-10">Birthday</dt>'+
                                             '<dd>'+
                                                 '<div class="dtp-container dropdown fg-line">'+
-                                                    '<input type="date" class="form-control date-picker" data-toggle="dropdown" aria-expanded="false">'+
+                                                    '<input id="basic_info_birthday_edit_id" type="date" class="form-control date-picker" data-toggle="dropdown" aria-expanded="false">'+
                                                 '</div>'+
                                             '</dd>'+
                                         '</dl>'+
@@ -127,7 +127,7 @@ Ext.define('Neighborhood.view.profileView',{
                                             '<dt class="p-t-10">Martial Status</dt>'+
                                             '<dd>'+
                                                 '<div class="fg-line">'+
-                                                    '<select class="form-control">'+
+                                                    '<select id="basic_info_rel_status_edit_id" class="form-control">'+
                                                         '<option>Single</option>'+
                                                         '<option>Married</option>'+
                                                         '<option>Other</option>'+
@@ -137,7 +137,7 @@ Ext.define('Neighborhood.view.profileView',{
                                         '</dl>'+
                                         
                                         '<div class="m-t-30">'+
-                                            '<button class="btn btn-primary btn-sm waves-effect">Save</button>'+
+                                            '<button onclick="Neighborhood.app.getController(\'profileController\').saveInfo(\'basicInfo\')" class="btn btn-primary btn-sm waves-effect">Save</button>'+
                                             '<button onclick="Neighborhood.app.getController(\'profileController\').cancelEdit(\'basicInfo\')" data-pmb-action="reset" class="btn btn-link btn-sm waves-effect">Cancel</button>'+
                                         '</div>'+
                                     '</div>'+
@@ -166,11 +166,11 @@ Ext.define('Neighborhood.view.profileView',{
                                     '<div class="pmbb-view">'+
                                         '<dl class="dl-horizontal">'+
                                             '<dt>Mobile Phone</dt>'+
-                                            '<dd>00971 12345678 9</dd>'+
+                                            '<dd id="basic_info_contact_number_id">00971 12345678 9</dd>'+
                                         '</dl>'+
                                         '<dl class="dl-horizontal">'+
                                             '<dt>Email Address</dt>'+
-                                            '<dd id="basicInfoMailId">malinda.h@gmail.com</dd>'+
+                                            '<dd id="basic_info_mail_id">malinda.h@gmail.com</dd>'+
                                         '</dl>'+
                                     '</div>'+
                                     
@@ -179,7 +179,7 @@ Ext.define('Neighborhood.view.profileView',{
                                             '<dt class="p-t-10">Mobile Phone</dt>'+
                                             '<dd>'+
                                                 '<div class="fg-line">'+
-                                                    '<input type="text" class="form-control" placeholder="eg. 00971 12345678 9">'+
+                                                    '<input id="basic_info_contact_number_edit_id" type="text" class="form-control" placeholder="eg. 00971 12345678 9">'+
                                                 '</div>'+
                                             '</dd>'+
                                         '</dl>'+
@@ -187,7 +187,7 @@ Ext.define('Neighborhood.view.profileView',{
                                             '<dt class="p-t-10">Email Address</dt>'+
                                             '<dd>'+
                                                 '<div class="fg-line">'+
-                                                    '<input type="email" class="form-control" placeholder="eg. malinda.h@gmail.com">'+
+                                                    '<input id="basic_info_mail_edit_id" type="email" class="form-control" placeholder="eg. malinda.h@gmail.com">'+
                                                 '</div>'+
                                             '</dd>'+
                                         '</dl>'+
@@ -207,21 +207,21 @@ Ext.define('Neighborhood.view.profileView',{
                             '<ul class="actions"><li class="dropdown"><a href="" data-toggle="dropdown">'+
                             '<i class="fa fa-bars"></i></a>'+
                             '<ul class="dropdown-menu dropdown-menu-right"><li>'+
-                            '<a data-pmb-action="edit" onclick="Neighborhood.app.getController(\'profileController\').enableEdit()">Edit</a>'+
+                            '<a data-pmb-action="edit" onclick="Neighborhood.app.getController(\'profileController\').enableEdit(\'workEducation\')">Edit</a>'+
                             '</li></ul></li></ul></div>'+
                             '<div class="pmbb-body workEducation">'+
                             	'<div class="pmbb-view workEducation">'+
 	                            	'<dl class="dl-horizontal">'+
 		                                '<dt>School</dt>'+
-		                                '<dd id="basicInfoSchoolId">Lions School</dd>'+
+		                                '<dd id="basic_info_school_id">Lions School</dd>'+
 		                            '</dl>'+
 			                            '<dl class="dl-horizontal">'+
 		                                '<dt>College</dt>'+
-		                                '<dd id="basicInfoCollegeId">Inderprastha Engineering College</dd>'+
+		                                '<dd id="basic_info_college_id">Inderprastha Engineering College</dd>'+
 		                            '</dl>'+
 		                            '<dl class="dl-horizontal">'+
 		                                '<dt>Workplace</dt>'+
-		                                '<dd id="basicInfoWorkId">Openstream Technologies Pvt Ltd</dd>'+
+		                                '<dd id="basic_info_work_id">Openstream Technologies Pvt Ltd</dd>'+
 		                            '</dl>'+
                             	'</div>'+
                             
@@ -230,7 +230,7 @@ Ext.define('Neighborhood.view.profileView',{
 			                            '<dt class="p-t-10">School</dt>'+
 			                            '<dd>'+
 			                                '<div class="fg-line">'+
-			                                    '<input type="text" class="form-control" placeholder="eg. your school name">'+
+			                                    '<input id="basic_info_school_edit_id" type="text" class="form-control" placeholder="eg. your school name">'+
 			                                '</div>'+
 			                            '</dd>'+
 			                        '</dl>'+
@@ -238,7 +238,7 @@ Ext.define('Neighborhood.view.profileView',{
 			                            '<dt class="p-t-10">College</dt>'+
 			                            '<dd>'+
 			                                '<div class="fg-line">'+
-			                                    '<input type="text" class="form-control" placeholder="eg. your college name">'+
+			                                    '<input id="basic_info_college_edit_id" type="text" class="form-control" placeholder="eg. your college name">'+
 			                                '</div>'+
 			                            '</dd>'+
 			                        '</dl>'+
@@ -246,10 +246,15 @@ Ext.define('Neighborhood.view.profileView',{
 			                            '<dt class="p-t-10">Workplace</dt>'+
 			                            '<dd>'+
 			                                '<div class="fg-line">'+
-			                                    '<input type="text" class="form-control" placeholder="eg. your workplace">'+
+			                                    '<input id="basic_info_work_edit_id" type="text" class="form-control" placeholder="eg. your workplace">'+
 			                                '</div>'+
 			                            '</dd>'+
 			                        '</dl>'+
+			                        
+			                        '<div class="m-t-30">'+
+	                                    '<button class="btn btn-primary btn-sm waves-effect">Save</button>'+
+	                                    '<button onclick="Neighborhood.app.getController(\'profileController\').cancelEdit(\'workEducation\')" data-pmb-action="reset" class="btn btn-link btn-sm waves-effect">Cancel</button>'+
+                                    '</div>'+
 			                    '</div>'+
 			                '</div>'+
                             '</div>'+

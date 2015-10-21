@@ -155,9 +155,10 @@ Ext.define('Neighborhood.controller.loginController',{
   		    	    function (response) {
   		    	      if (response && !response.error) {
   		    	    	  console.log(response);
+  		    	    	  //newUserRegister will either insert new user into DB if not exist or it will return User already exist
   		    	    	  Neighborhood.request.DataService.newUserRegister(response.name,response.email,'',function(result){
   		    	    		 console.log(result); 
-  		    	    		 Neighborhood.app.getController('loginController').onLoginSuccess(response);
+  		    	    		 Neighborhood.app.getController('loginController').onFBLoginSuccess(response); //response is USer data coming from facebook
   		    	    	  },function(result){
   		    	    		  console.log(result); 
   		    	    	  });
@@ -175,9 +176,10 @@ Ext.define('Neighborhood.controller.loginController',{
 	    		    	    function (response) {
 	    		    	      if (response && !response.error) {
 	    		    	    	  console.log(response);
+	    		    	    	  //newUserRegister will either insert new user into DB if not exist or it will return User already exist
 	    		    	    	  Neighborhood.request.DataService.newUserRegister(response.name,response.email,'',function(result){
 	    		    	    		 console.log(result); 
-	    		    	    		 Neighborhood.app.getController('loginController').onLoginSuccess(response);
+	    		    	    		 Neighborhood.app.getController('loginController').onFBLoginSuccess(response);//response is USer data coming from facebook
 	    		    	    	  },function(result){
 	    		    	    		  console.log(result); 
 	    		    	    	  });
@@ -189,9 +191,11 @@ Ext.define('Neighborhood.controller.loginController',{
   		});
 	},
 	
-	onLoginSuccess : function(response){
+	onFBLoginSuccess : function(response){
+		//response is User data coming from facebook
+		
 		//extracting user details
-		var schoolName = " ";
+		var schoolName = "";
 		var collegeName = "";
 		if(response && response.education){
 			for(var i=0;i<response.education.length;i++){
@@ -203,33 +207,41 @@ Ext.define('Neighborhood.controller.loginController',{
 		}
 		
 		var json = {
-				birthday : response.birthday ? response.birthday : '',
-				mailId : response.email ? response.email : '',
+				DOB : response.birthday ? response.birthday : '',
+				mail_id : response.email ? response.email : '',
 				gender : response.gender ? response.gender : '',
-				firstName : response.first_name ? response.first_name : '',
-				lastName : response.last_name ? response.last_name : '',
+				first_name : response.first_name ? response.first_name : '',
+				last_name : response.last_name ? response.last_name : '',
 				name : response.name ? response.name : '',
-				relationshipStatus : response.relationship_status ? response.relationship_status : '',
+				relationship_status : response.relationship_status ? response.relationship_status : '',
 				college : collegeName,
 				school : schoolName,
 				workplace :(response.work && response.work[0] && response.work[0]) ? response.work[0].employer.name : '',
-				profilePic : 'http://graph.facebook.com/'+response.id+'/picture?type=large'
+				profile_pic : response.id ? 'http://graph.facebook.com/'+response.id+'/picture?type=large' : ''
 			}
 		
-		//adding the user deatils into store
-		Ext.getStore('userProfileStore').add(json);
-		
+		//first update the user information coming from facebook to DB and then select all data from User_profile table and add it store
 		Neighborhood.request.DataService.updateUserData(json,function(result){
 			console.log(result);
+			//get more information from user_profile table and add it to store
+			
+			//adding the user deatils into store
+			Ext.getStore('userProfileStore').add(JSON.parse(result)[0]);
+			
+			
+			
+			Neighborhood.app.getController('MainController').showMainView();
+			
+			//setting the userName and profilePic to view
+			$('#profilePicId')[0].src = 'http://graph.facebook.com/'+response.id+'/picture?type=large';
+			$('#profileNameId')[0].innerText = response.name;
+			
 		},function(result){
 			console.log(result);
 		},this);
 		
-		Neighborhood.app.getController('MainController').showMainView();
 		
-		//setting the userName and profilePic to view
-		$('#profilePicId')[0].src = 'http://graph.facebook.com/'+response.id+'/picture?type=large';
-		$('#profileNameId')[0].innerText = response.name;
+		
 	},
 
 });

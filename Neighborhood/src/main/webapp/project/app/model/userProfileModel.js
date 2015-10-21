@@ -4,23 +4,25 @@ Ext.define('Neighborhood.model.userProfileModel',{
 	//singleton:true,
     config: {
     	fields: [
-    	        {name: 'userId'}, 
+    	        {name: 'user_id'}, 
  	         	{name: 'password'},
+ 	         	{name: 'first_name'},
+ 	         	{name: 'last_name'},
  	         	{name: 'name'},
- 	         	{name : 'relationshipStatus'},
- 	         	{name: 'firstName'},
- 	         	{name: 'lastName'},
- 	         	{name: 'contactNumber'},
- 	         	{name: 'mailId'},
- 	         	{name: 'birthday'},
- 	         	{name: 'profilePic'},
+ 	         	{name: 'mail_id'},
+ 	         	{name: 'profile_pic'},
+ 	         	{name: 'DOB'},
  	         	{name: 'school'},
  	         	{name: 'college'},
  	         	{name: 'workplace'},
  	         	{name: 'gender'},
- 	         	{name: 'location'},
- 	         	{name: 'localityId'},
- 	         	{name: 'deactivated'}
+ 	         	{name: 'address'},
+ 	         	{name: 'latitude'},
+ 	         	{name: 'longitude'},
+ 	         	{name: 'contact_number'},
+ 	         	{name : 'relationship_status'},
+ 	         	{name: 'locality_id'},
+ 	         	{name: 'user_status'}
  	        ]
     }
 
