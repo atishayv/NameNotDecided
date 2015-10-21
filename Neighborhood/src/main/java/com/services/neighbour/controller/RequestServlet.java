@@ -14,7 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.google.gson.JsonObject;
+//import com.google.gson.JsonObject;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 public class RequestServlet extends HttpServlet{
@@ -126,29 +126,76 @@ public class RequestServlet extends HttpServlet{
 				    }
 				}else if(requestObject.getString("action").equalsIgnoreCase("updateUserData")){
 					JSONObject data = new JSONObject(requestObject.getString("data"));
-					String dateString = "";
+					String updateString = "";
 					
-					if(!data.getString("birthday").equalsIgnoreCase("")){
-						java.util.Date dt = new java.util.Date(data.getString("birthday"));
+					//check for all the fields coming coming from client and execute appropriate update query
+					if(data.has("DOB") && !data.getString("DOB").equalsIgnoreCase("")){
+						java.util.Date dt = new java.util.Date(data.getString("DOB"));
 						 java.text.SimpleDateFormat sdf = 
 							     new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-						 dateString = "DOB='"+sdf.format(dt)+"',";
+						 updateString += "DOB='"+sdf.format(dt)+"',";
 					}
 					
-					 String sql = "UPDATE USER_DATA SET first_name='"+data.getString("firstName")+"',"
-					 		+ "last_name='"+data.getString("lastName")+"',"
-					 		+ "profile_pic='"+data.getString("profilePic")+"',"
-					 		+ dateString
-					 		+ "school='"+data.getString("school")+"',"
-					 		+ "college='"+data.getString("college")+"',"
-					 		+ "workplace='"+data.getString("workplace")+"',"
-					 		+ "gender='"+data.getString("gender").substring(0, 1)+"' WHERE mail_id='"+data.getString("mailId")+"'";
-					System.out.println(sql);
-					stmt = connection.createStatement();
-					stmt.executeUpdate(sql);
-			    	String responseStr = "Successfully updated user in DB";
+					if(data.has("first_name") && !data.getString("first_name").equalsIgnoreCase("")){
+						updateString += "first_name='"+data.getString("first_name")+"',";
+					}
+					if(data.has("last_name") && !data.getString("last_name").equalsIgnoreCase("")){
+						updateString += "last_name='"+data.getString("last_name")+"',";
+					}
+					if(data.has("profile_pic") && !data.getString("profile_pic").equalsIgnoreCase("")){
+						updateString += "profile_pic='"+data.getString("profile_pic")+"',";
+					}
+					if(data.has("school") && !data.getString("school").equalsIgnoreCase("")){
+						updateString += "school='"+data.getString("school")+"',";
+					}
+					if(data.has("college") && !data.getString("college").equalsIgnoreCase("")){
+						updateString += "college='"+data.getString("college")+"',";
+					}
+					if(data.has("workplace") && !data.getString("workplace").equalsIgnoreCase("")){
+						updateString += "workplace='"+data.getString("workplace")+"',";
+					}
+					if(data.has("gender") && !data.getString("gender").equalsIgnoreCase("")){
+						updateString += "gender='"+data.getString("gender").substring(0, 1)+"',";
+					}
+					if(data.has("relationship_status") && !data.getString("relationship_status").equalsIgnoreCase("")){
+						updateString += "relationship_status='"+data.getString("relationship_status")+"',";
+					}
+					if(data.has("address") && !data.getString("address").equalsIgnoreCase("")){
+						updateString += "address='"+data.getString("address")+"',";
+					}
+					if(data.has("latitude") && !data.getString("latitude").equalsIgnoreCase("")){
+						updateString += "latitude='"+data.getString("latitude")+"',";
+					}
+					if(data.has("longitude") && !data.getString("longitude").equalsIgnoreCase("")){
+						updateString += "longitude='"+data.getString("longitude")+"',";
+					}
+					if(data.has("contact_number") && !data.getString("contact_number").equalsIgnoreCase("")){
+						updateString += "contact_number='"+data.getString("contact_number")+"',";
+					}
+					if(data.has("locality_id") && !data.getString("locality_id").equalsIgnoreCase("")){
+						updateString += "locality_id='"+data.getString("locality_id")+"',";
+					}
+					if(data.has("user_status") && !data.getString("user_status").equalsIgnoreCase("")){
+						updateString += "user_status='"+data.getString("user_status")+"',";
+					}
+					if(updateString!=""){
+						updateString = updateString.substring(0, updateString.length()-1);
+						
+						String sql = "UPDATE USER_DATA SET "
+						 		+ updateString
+						 		+" WHERE mail_id='"+data.getString("mail_id")+"'";
+						System.out.println(sql);
+						stmt = connection.createStatement();
+						stmt.executeUpdate(sql);
+					}
+					
+					String sql = "SELECT * FROM USER_DATA WHERE mail_id='"+data.getString("mail_id")+"'";
+				    rs = stmt.executeQuery(sql);
+				    
+				    JSONArray responseArr = convertToArray(rs);
+					
 		    		resp.setHeader("Cache-Control", "no-cache");
-					sendResponse(resp,responseStr.getBytes("UTF-8"));
+					sendResponse(resp,responseArr.toString().getBytes("UTF-8"));
 				}
 				
 	      
@@ -256,5 +303,6 @@ public class RequestServlet extends HttpServlet{
 				}
 			}
 		}
+	 
 
 }
