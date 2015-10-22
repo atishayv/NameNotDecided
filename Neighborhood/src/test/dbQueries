@@ -26,7 +26,7 @@ gender char(1),
 address varchar(500),
 latitude float,
 longitude float,
-contact_number int,
+contact_number varchar(14),
 relationship_status varchar(255),
 user_status varchar(255),	//admin,muted,deactivated
 locality_id int,
