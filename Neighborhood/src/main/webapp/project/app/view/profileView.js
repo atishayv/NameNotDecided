@@ -119,7 +119,7 @@ Ext.define('Neighborhood.view.profileView',{
                                             '<dt class="p-t-10">Birthday</dt>'+
                                             '<dd>'+
                                                 '<div class="dtp-container dropdown fg-line">'+
-                                                    '<input id="basic_info_birthday_edit_id" type="date" class="form-control date-picker" data-toggle="dropdown" aria-expanded="false">'+
+                                                    '<input id="basic_info_birthday_edit_id" type="date" class="form-control date-picker">'+
                                                 '</div>'+
                                             '</dd>'+
                                         '</dl>'+
@@ -193,7 +193,7 @@ Ext.define('Neighborhood.view.profileView',{
                                         '</dl>'+
                                         
                                         '<div class="m-t-30">'+
-                                            '<button class="btn btn-primary btn-sm waves-effect">Save</button>'+
+                                            '<button onclick="Neighborhood.app.getController(\'profileController\').saveInfo(\'contact\')" class="btn btn-primary btn-sm waves-effect">Save</button>'+
                                             '<button onclick="Neighborhood.app.getController(\'profileController\').cancelEdit(\'contact\')" data-pmb-action="reset" class="btn btn-link btn-sm waves-effect">Cancel</button>'+
                                         '</div>'+
                                     '</div>'+
@@ -252,7 +252,7 @@ Ext.define('Neighborhood.view.profileView',{
 			                        '</dl>'+
 			                        
 			                        '<div class="m-t-30">'+
-	                                    '<button class="btn btn-primary btn-sm waves-effect">Save</button>'+
+	                                    '<button onclick="Neighborhood.app.getController(\'profileController\').saveInfo(\'workEducation\')" class="btn btn-primary btn-sm waves-effect">Save</button>'+
 	                                    '<button onclick="Neighborhood.app.getController(\'profileController\').cancelEdit(\'workEducation\')" data-pmb-action="reset" class="btn btn-link btn-sm waves-effect">Cancel</button>'+
                                     '</div>'+
 			                    '</div>'+

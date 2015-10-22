@@ -45,7 +45,11 @@ Ext.define('Neighborhood.view.mainView',{
 		    	   itemId:"profilePanelId",
 		    	   html : '<div class="profile-block">'+
 						'<div class="panel profile-photo">'+
-						'<img id="profilePicId" src="resources/images/profilePic.jpg" alt="">'+
+						'<img id="profilePicId" src="resources/images/profile_pic.png" alt="">'+
+							'<div style="height:0px;overflow:hidden">'+
+							   '<input type="file" id="profile_pic_input_id" name="profile_pic_input_id" />'+
+							'</div>'+
+						'<button style="display: none;" onclick="Neighborhood.app.getController(\'profileController\').uploadProfilePic()">Change profile Picture</button>'+
 					'</div><br>'+
 					'<div id="profileNameId" style="font-size: 20px;">Denise Steiner</div>'+
 				'</div>'+

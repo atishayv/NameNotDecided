@@ -28,11 +28,20 @@ Ext.define('Neighborhood.view.loginView',{
 							    items: [
 									{
 									    xtype: 'textfield',
-									    placeHolder: 'Name',
-									    itemId:"userNameID",
+									    placeHolder: 'First Name',
+									    itemId:"user_first_name_id",
 									    cls:"loginPanelTextFieldCls",
 									    hidden : true,
-									    //value:"Atishay Verma",
+									    //value:"Atishay",
+									    required: true
+									},
+									{
+									    xtype: 'textfield',
+									    placeHolder: 'Last Name',
+									    itemId:"user_last_name_id",
+									    cls:"loginPanelTextFieldCls",
+									    hidden : true,
+									    //value:"Verma",
 									    required: true
 									},
 							        {
@@ -63,11 +72,12 @@ Ext.define('Neighborhood.view.loginView',{
 							    hidden : true,
 							    handler : function(cmp){
 							    	
-							    	var userName = cmp.up().getComponent('panelFieldSetID').getComponent('userNameID').getValue();
+							    	var user_first_name = cmp.up().getComponent('panelFieldSetID').getComponent('user_first_name_id').getValue();
+							    	var user_last_name = cmp.up().getComponent('panelFieldSetID').getComponent('user_last_name_id').getValue();
 							    	var emailId = cmp.up().getComponent('panelFieldSetID').getComponent('userEmailID').getValue();
 							    	var password = cmp.up().getComponent('panelFieldSetID').getComponent('passwordID').getValue();
 							    	
-							    	Neighborhood.app.getController('loginController').createAccount(userName,emailId,password);
+							    	Neighborhood.app.getController('loginController').createAccount(user_first_name,user_last_name,emailId,password);
 							    }
 							},
 							{
