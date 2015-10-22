@@ -853,8 +853,8 @@ function searchCallback(results, status) {
 	        resetMarkerList();
 	    } 
 	        var mapOptions = {
-	            zoom: 10,
-	            maxZoom:14,
+	            zoom: 12,
+	            maxZoom:20,
 	            zoomControl:true,
 	            zoomControlOptions:{style:"SMALL"},
 	            center: mapCenter,

@@ -8,9 +8,10 @@ Ext.define('Neighborhood.request.DataService',{
 	singleton: true,
 
 	
-	newUserRegister : function(userName,emailId,password,successCallBk,failureCallBk,scope){
+	newUserRegister : function(first_name,last_name,emailId,password,successCallBk,failureCallBk,scope){
 		var reqObj = { 
-				userName:userName,
+				first_name:first_name,
+				last_name:last_name,
 				password:password,
 				email:emailId, 
 				action:"newUserRegister" 

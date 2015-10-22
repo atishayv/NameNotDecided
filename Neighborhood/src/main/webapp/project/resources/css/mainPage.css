@@ -236,6 +236,21 @@
     margin-bottom: 10px;
     border-radius: 999999px;
 }
+.mainViewCls .profilePanelCls .x-innerhtml .profile-block .profile-photo:hover{
+    background: rgba(4, 4, 4, 0.51) center center no-repeat;	
+}
+.mainViewCls .profilePanelCls .x-innerhtml .profile-block .profile-photo:hover img{
+    opacity: 0.6;
+    display: inline-block;	
+}
+.mainViewCls .profilePanelCls .x-innerhtml .profile-block .profile-photo:hover button{
+        background: black;
+    border-radius: 10px;
+    width: 75%;
+    display: block !important;
+    margin-left: 14%;
+    color: white;	
+}
 .mainViewCls.mainViewPhoneCls .profilePanelCls .x-innerhtml .profile-block .profile-photo{
     height: 82%;
     margin-bottom: 0px;
@@ -243,7 +258,7 @@
 }
 
 .mainViewCls .profilePanelCls .x-innerhtml .profile-block .profile-photo img{
-    display: block;
+    display: inline-block;
     max-width: 100%;
     border-radius: 999999px;
     height: 180px;
