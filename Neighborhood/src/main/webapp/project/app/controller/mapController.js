@@ -7,19 +7,31 @@ Ext.define('Neighborhood.controller.mapController',{
 	},
 	loadMapWithMarker: function(divId,location){
 		var me = this;
-		loadMap(divId,function(){
-			if(location){
-				me.placeMarker(location)
-			}
-			google.maps.event.addListener(map, 'click', function(event) {
-			    me.placeMarker(event.latLng);
-			  });
+		if(location){
+			me.placeMarker(divId,location)
+		}
+		google.maps.event.addListener(map, 'click', function(event) {
+		    me.placeMarker(divId,event.latLng);
 		});
 	},
-	placeMarker :function (location,contentString,title) {
+	placeMarker :function (divId,location,contentString,title) {
+			var mymap = "";
+			var mapOptions = {
+	            zoom: 12,
+	            maxZoom:20,
+	            center: new google.maps.LatLng(location.lat, location.lng),
+	            zoomControl:true,
+	            zoomControlOptions:{style:"SMALL"},
+	            mapTypeId: google.maps.MapTypeId.ROADMAP,
+	            draggable:true
+	        };
+			mymap = new google.maps.Map(document.getElementById(divId),mapOptions);
+		
+		
+		
 		  var marker = new google.maps.Marker({
 		      position: location, 
-		      map: map,
+		      map: mymap,
 		      title: (title ? title : '')
 		  });
 		  if(contentString && contentString != ''){
@@ -29,11 +41,10 @@ Ext.define('Neighborhood.controller.mapController',{
 
 			  
 			  marker.addListener('click', function() {
-			    infowindow.open(map, marker);
+			    infowindow.open(mymap, marker);
 			  });
 		  }
 		  
-		  map.setCenter(location);
 	},
 	getMapPath: function(){
 		return mapPolygon.latLngs.j;

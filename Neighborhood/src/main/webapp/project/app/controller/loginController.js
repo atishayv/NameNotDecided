@@ -13,7 +13,8 @@ Ext.define('Neighborhood.controller.loginController',{
 	showCreateAccountPanel : function(){
 		var loginPanelId = this.loginView.getComponent('loginPanelId');
 		loginPanelId.addCls('createAccCls'); 
-		loginPanelId.getComponent('panelFieldSetID').getComponent('userNameID').show();
+		loginPanelId.getComponent('panelFieldSetID').getComponent('user_first_name_id').show();
+		loginPanelId.getComponent('panelFieldSetID').getComponent('user_last_name_id').show();
 		loginPanelId.getComponent('createAccButton').show();
 		loginPanelId.getComponent('loginAccButton').hide();
 		loginPanelId.getComponent('facebookAccButton').hide();
@@ -24,7 +25,8 @@ Ext.define('Neighborhood.controller.loginController',{
 	showLoginPanel : function(){
 		var loginPanelId = this.loginView.getComponent('loginPanelId');
 		loginPanelId.removeCls('createAccCls');
-		loginPanelId.getComponent('panelFieldSetID').getComponent('userNameID').hide();
+		loginPanelId.getComponent('panelFieldSetID').getComponent('user_first_name_id').hide();
+		loginPanelId.getComponent('panelFieldSetID').getComponent('user_last_name_id').hide();
 		loginPanelId.getComponent('createAccButton').hide();
 		loginPanelId.getComponent('loginAccButton').show();
 		loginPanelId.getComponent('facebookAccButton').show();
@@ -32,11 +34,11 @@ Ext.define('Neighborhood.controller.loginController',{
 		loginPanelId.getComponent('registerTextCmpId').hide();
 	},
 	
-	createAccount : function(userName,emailId,password){
+	createAccount : function(first_name,last_name,emailId,password){
 		
 		var emailFilter = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 	    var illegalChars= /[\(\)\<\>\,\;\:\\\"\[\]]/ ;
-    	if(userName=="" || userName==null || emailId=="" || emailId==null ||password=="" || password==null){
+    	if(first_name=="" || first_name==null || last_name=="" || last_name==null || emailId=="" || emailId==null ||password=="" || password==null){
     		Ext.Msg.show({
 	             title : 'Error',
 				 message: 'Please enter all the fields correctly',
@@ -51,7 +53,7 @@ Ext.define('Neighborhood.controller.loginController',{
 	             buttons: Ext.MessageBox.OK,
 			});
     	}else{
-    		Neighborhood.request.DataService.newUserRegister(userName,emailId,password,function(result){
+    		Neighborhood.request.DataService.newUserRegister(first_name,last_name,emailId,password,function(result){
     			console.log("success"+result);
     			if(result == "User already exist"){
     				Ext.Msg.show({
@@ -119,19 +121,13 @@ Ext.define('Neighborhood.controller.loginController',{
 			             buttons: Ext.MessageBox.OK,
 					});
     			}else{
-    				result = JSON.parse(result);
-    				if(result && result.length>0){
-    					if(result[0].locality_id<1){
-    						//adding the user deatils into store
-    						Ext.getStore('userProfileStore').add({
-    							mailId : result[0].mail_id,
-    							firstName : result[0].first_name,
-    							name : result[0].first_name,
-    							userId : result[0].user_id
-    						});
-    						Neighborhood.app.getController('MainController').showMainView(true);
-    					}
-    				}
+    				//adding the user deatils into store
+    				var response  = JSON.parse(result)[0]
+    				Ext.getStore('userProfileStore').add(response);
+    				
+    				Neighborhood.app.getController('MainController').showMainView(true);
+    				
+    				$('#profileNameId')[0].innerText = (response.first_name ? response.first_name+" " : "") + (response.last_name ? response.last_name : "");
     			}
     		},function(result){
     			console.log(result);
@@ -156,7 +152,7 @@ Ext.define('Neighborhood.controller.loginController',{
   		    	      if (response && !response.error) {
   		    	    	  console.log(response);
   		    	    	  //newUserRegister will either insert new user into DB if not exist or it will return User already exist
-  		    	    	  Neighborhood.request.DataService.newUserRegister(response.name,response.email,'',function(result){
+  		    	    	  Neighborhood.request.DataService.newUserRegister(response.first_name,response.last_name,response.email,'',function(result){
   		    	    		 console.log(result); 
   		    	    		 Neighborhood.app.getController('loginController').onFBLoginSuccess(response); //response is USer data coming from facebook
   		    	    	  },function(result){
@@ -177,7 +173,7 @@ Ext.define('Neighborhood.controller.loginController',{
 	    		    	      if (response && !response.error) {
 	    		    	    	  console.log(response);
 	    		    	    	  //newUserRegister will either insert new user into DB if not exist or it will return User already exist
-	    		    	    	  Neighborhood.request.DataService.newUserRegister(response.name,response.email,'',function(result){
+	    		    	    	  Neighborhood.request.DataService.newUserRegister(response.first_name,response.last_name,response.email,'',function(result){
 	    		    	    		 console.log(result); 
 	    		    	    		 Neighborhood.app.getController('loginController').onFBLoginSuccess(response);//response is USer data coming from facebook
 	    		    	    	  },function(result){

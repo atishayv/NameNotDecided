@@ -311,7 +311,7 @@ Ext.define('Neighborhood.controller.MainController',{
 			$('#basic_info_gender_edit_id')[0].value = gender;
 			
 			$('#basic_info_birthday_id')[0].innerText = userData.DOB ? userData.DOB : "Provide your date of birth";
-			$('#basic_info_birthday_edit_id')[0].value = userData.DOB ? userData.DOB : "Provide your date of birth";
+			$('#basic_info_birthday_edit_id')[0].value = userData.DOB ? userData.DOB : "";
 			
 			$('#basic_info_rel_status_id')[0].innerText = userData.relationship_status ? userData.relationship_status : "Enter your relationship status";
 			$('#basic_info_rel_status_edit_id')[0].value = userData.relationship_status ? userData.relationship_status : "Single";
