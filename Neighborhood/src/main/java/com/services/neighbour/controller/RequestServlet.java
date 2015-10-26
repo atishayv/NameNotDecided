@@ -1,18 +1,33 @@
 package com.services.neighbour.controller;
 
+import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.net.URL;
 import java.sql.*;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+
+
+
+
+
+
+
 
 //import com.google.gson.JsonObject;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
@@ -65,7 +80,7 @@ public class RequestServlet extends HttpServlet{
 		//super.doPost(req, resp);
 		
 		 Connection connection=null;
-		 Statement stmt = null;
+		 PreparedStatement stmt = null;
 		 ResultSet rs = null;
 	    try {
 	      connection = getConnection();
@@ -84,17 +99,19 @@ public class RequestServlet extends HttpServlet{
 				System.out.println(requestObject);
 				
 				if(requestObject.getString("action").equalsIgnoreCase("newUserRegister")){
-					String userName = requestObject.getString("userName");
+					String first_name = requestObject.getString("first_name");
+					String last_name = requestObject.getString("last_name");
 					String password = requestObject.getString("password");
 					String email = requestObject.getString("email");
 					
 					
-					stmt = connection.createStatement();
+					
 				    String sql;
 				    sql = "SELECT * FROM USER_DATA WHERE mail_id='"+email+"'";
-				    rs = stmt.executeQuery(sql);
+				    stmt = connection.prepareStatement(sql);
+				    rs = stmt.executeQuery();
 				    if (!rs.isBeforeFirst() ) {
-				    	 sql = "INSERT INTO USER_DATA (password,first_name,mail_id) VALUES ('"+password+"','"+userName+"','"+email+"')";
+				    	 sql = "INSERT INTO USER_DATA (password,first_name,last_name,mail_id) VALUES ('"+password+"','"+first_name+"','"+last_name+"','"+email+"')";
 				    	 System.out.println(sql);
 				    	 stmt.executeUpdate(sql);
 				    	 String responseStr = "Successfully inserted user in DB";
@@ -110,10 +127,11 @@ public class RequestServlet extends HttpServlet{
 					String password = requestObject.getString("password");
 					String email = requestObject.getString("email");
 					
-					stmt = connection.createStatement();
+					
 				    String sql;
 				    sql = "SELECT * FROM USER_DATA WHERE mail_id='"+email+"' AND password='"+password+"'";
-				    rs = stmt.executeQuery(sql);
+				    stmt = connection.prepareStatement(sql);
+				    rs = stmt.executeQuery();
 				    if (!rs.isBeforeFirst() ) {
 				    	String responseStr = "User does not exist";
 			    		resp.setHeader("Cache-Control", "no-cache");
@@ -185,8 +203,8 @@ public class RequestServlet extends HttpServlet{
 						 		+ updateString
 						 		+" WHERE mail_id='"+data.getString("mail_id")+"'";
 						System.out.println(sql);
-						stmt = connection.createStatement();
-						stmt.executeUpdate(sql);
+						stmt = connection.prepareStatement(sql);
+						stmt.executeUpdate();
 					}
 					
 					String sql = "SELECT * FROM USER_DATA WHERE mail_id='"+data.getString("mail_id")+"'";
@@ -196,6 +214,57 @@ public class RequestServlet extends HttpServlet{
 					
 		    		resp.setHeader("Cache-Control", "no-cache");
 					sendResponse(resp,responseArr.toString().getBytes("UTF-8"));
+				}else if(requestObject.getString("action").equalsIgnoreCase("update_profile_pic")){
+					JSONObject data = new JSONObject(requestObject.getString("data"));
+					String updateString = "";
+					String location = "";
+					
+					if(data.has("profile_pic") && !data.getString("profile_pic").equalsIgnoreCase("")){
+						//convert the base 64 data to image file and store image file path in database
+						 try {
+				        	String imageString = data.getString("profile_pic");
+				        	
+				        	String base64Image = imageString.split(",")[1];
+				        	byte[] imageBytes = javax.xml.bind.DatatypeConverter.parseBase64Binary(base64Image);
+				        	
+				        	BufferedImage bImage = ImageIO.read(new ByteArrayInputStream(imageBytes));
+				            
+				        	//get the user_id
+				        	String sql = "SELECT user_id FROM USER_DATA WHERE mail_id='"+data.getString("mail_id")+"'";
+				        	stmt = connection.prepareStatement(sql);
+						    rs = stmt.executeQuery();
+						    rs.next();
+						    System.out.println(rs.getInt("user_id"));
+						    
+				            //File file = new File(getServletContext().getRealPath(File.separator) +"profile_pics/profile_pic_"+rs.getInt("user_id")+".png");
+						    File file = new File("D:/My_Workspace/Neighbourhood/NameNotDecided/Neighborhood/src/main/webapp/profile_pics/profile_pic_"+rs.getInt("user_id")+".png");
+				            
+				            
+				            ImageIO.write(bImage, "png", file); 
+					            
+					        } catch (Exception e) {
+					        	e.printStackTrace();
+					        }
+					        
+					        
+						
+						updateString += "profile_pic='../profile_pics/profile_pic_"+rs.getInt("user_id")+".png',";
+						System.out.println(updateString);
+					}
+					if(updateString!=""){
+						updateString = updateString.substring(0, updateString.length()-1);
+						
+						String sql = "UPDATE USER_DATA SET "
+						 		+ updateString
+						 		+" WHERE mail_id='"+data.getString("mail_id")+"'";
+						System.out.println(sql);
+						stmt = connection.prepareStatement(sql);
+						stmt.executeUpdate();
+					}
+					
+					
+		    		resp.setHeader("Cache-Control", "no-cache");
+					sendResponse(resp,"Successfully updated profile pic".getBytes("UTF-8"));
 				}
 				
 	      
@@ -303,6 +372,6 @@ public class RequestServlet extends HttpServlet{
 				}
 			}
 		}
-	 
+
 
 }
