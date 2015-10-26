@@ -298,9 +298,9 @@ Ext.define('Neighborhood.controller.MainController',{
 		if(!viewExist){
 			var userData = Ext.getStore('userProfileStore').getAt(0).data;
 			var gender="Enter your gender";
-			if(userData.gender=="m")
+			if(userData.gender=="M")
 				gender = "Male";
-			else if(userData.gender=="f")
+			else if(userData.gender=="F")
 				gender = "Female";
 			
 			
@@ -311,7 +311,7 @@ Ext.define('Neighborhood.controller.MainController',{
 			$('#basic_info_gender_edit_id')[0].value = gender;
 			
 			$('#basic_info_birthday_id')[0].innerText = userData.DOB ? userData.DOB : "Provide your date of birth";
-			$('#basic_info_birthday_edit_id')[0].value = userData.DOB ? userData.DOB : "";
+			$('#basic_info_birthday_edit_id')[0].value = userData.DOB ? Ext.Date.format(new Date(userData.DOB),'Y-m-d') : "";
 			
 			$('#basic_info_rel_status_id')[0].innerText = userData.relationship_status ? userData.relationship_status : "Enter your relationship status";
 			$('#basic_info_rel_status_edit_id')[0].value = userData.relationship_status ? userData.relationship_status : "Single";
@@ -330,6 +330,13 @@ Ext.define('Neighborhood.controller.MainController',{
 			
 			$('#basic_info_work_id')[0].innerText = userData.workplace ? userData.workplace : "Provide your work place name";
 			$('#basic_info_work_edit_id')[0].value = userData.workplace ? userData.workplace : "Provide your work place name";
+			
+			
+			if(!userData.latitude && !userData.longitude){
+				Neighborhood.app.getController('mapController').loadMapWithMarker('userMapContainer');
+				$('#user_map_search_box_id').attr("placeholder", "Search to add your location..");
+			}
+				
 			
 		}
 		

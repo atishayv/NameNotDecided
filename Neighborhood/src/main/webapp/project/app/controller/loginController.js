@@ -127,6 +127,9 @@ Ext.define('Neighborhood.controller.loginController',{
     				
     				Neighborhood.app.getController('MainController').showMainView(true);
     				
+    				//setting the userName and profilePic to view
+    				if(response.profile_pic)
+    					$('#profilePicId')[0].src = response.profile_pic;
     				$('#profileNameId')[0].innerText = (response.first_name ? response.first_name+" " : "") + (response.last_name ? response.last_name : "");
     			}
     		},function(result){

@@ -90,6 +90,19 @@ Ext.define('Neighborhood.controller.profileController',{
 	
 	setProfilePic : function(e){
 		$('#profilePicId').attr('src', e.target.result);
+		
+		//update the profile picture in database
+		var json = {
+				'profile_pic' : e.target.result,
+				'mail_id' : Ext.getStore('userProfileStore').getAt(0).get('mail_id')
+		}
+		
+		Neighborhood.request.DataService.update_profile_pic(json,function(result){
+			console.log(result);
+			console.log("Succesfully updated profile picture in table");
+		},function(result){
+			console.log(result);
+		},this);
 	}
 
 });

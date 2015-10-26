@@ -36,4 +36,12 @@ Ext.define('Neighborhood.request.DataService',{
 		Neighborhood.request.Service.makeServerRequest(reqObj,'POST', successCallBk, failureCallBk, scope);
 	},
 	
+	update_profile_pic : function(data,successCallBk,failureCallBk,scope){
+		var reqObj = {
+				action : 'update_profile_pic',
+				data : data
+		}
+		Neighborhood.request.Service.makeServerRequest(reqObj,'POST', successCallBk, failureCallBk, scope);
+	},
+	
 });

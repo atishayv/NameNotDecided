@@ -11,7 +11,7 @@ Ext.define('Neighborhood.view.profileView',{
         },
 		listeners:{
              show : function(){
-            	 Neighborhood.app.getController('mapController').loadMapWithMarker('userMapContainer',{lat:12.9715987,lng : 77.5945627});
+            	 //Neighborhood.app.getController('mapController').loadMapWithMarker('userMapContainer');
              }
 		},
 		
@@ -269,6 +269,7 @@ Ext.define('Neighborhood.view.profileView',{
                             '<a data-pmb-action="edit" onclick="Neighborhood.app.getController(\'profileController\').enableEdit()">Change Location</a>'+
                             '</li></ul></li></ul></div>'+
                             '<div class="pmbb-body map">'+
+                            '<input id="user_map_search_box_id" class="controls" type="text" placeholder="Search Places..">'+
                             '<div id="userMapContainer" style="height: 300px"></div>'+
                             '<div>'+
                             '<div>',
