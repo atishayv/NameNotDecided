@@ -103,6 +103,31 @@ Ext.define('Neighborhood.controller.profileController',{
 		},function(result){
 			console.log(result);
 		},this);
+	},
+	
+	
+	update_user_loaction : function(lat,lng){
+		//close the info window
+		Neighborhood.app.getController('mapController').markers[0].infowindow.close();
+		
+		var json = {};
+		
+		json.latitude = lat;
+		json.longitude = lng;
+		
+		var record = Ext.getStore('userProfileStore').getAt(0);  		//Assuming store contain only one data i.e. logged in user data
+		record.set('latitude',lat);
+		record.set('longitude',lng);
+		
+		json.mail_id = record.get('mail_id');
+		
+		Neighborhood.request.DataService.updateUserData(json,function(result){
+			console.log(result);
+			console.log("Succesfully updated user record in table");
+			Ext.Msg.alert("Your position has been set");
+		},function(result){
+			console.log(result);
+		},this);
 	}
 
 });

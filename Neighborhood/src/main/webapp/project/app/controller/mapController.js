@@ -1,5 +1,8 @@
 Ext.define('Neighborhood.controller.mapController',{
 	extend: 'Ext.app.Controller',
+	markers : [],
+	
+	
 	loadMap: function(){
 		loadInitialCoordinates(function(){
 			loadMap('mapContainer');
@@ -15,7 +18,7 @@ Ext.define('Neighborhood.controller.mapController',{
             //center: new google.maps.LatLng(location.lat, location.lng),
             zoomControl:true,
             zoomControlOptions:{style:"SMALL"},
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            mapTypeId: google.maps.MapTypeId.HYBRID,
             draggable:true
         };
 		mymap = new google.maps.Map(document.getElementById(divId),mapOptions);
@@ -33,7 +36,6 @@ Ext.define('Neighborhood.controller.mapController',{
 	    });
 	    
 	    
-	    var markers = [];
 	    // Listen for the event fired when the user selects a prediction and retrieve
 	    // more details for that place.
 	    searchBox.addListener('places_changed', function() {
@@ -43,41 +45,16 @@ Ext.define('Neighborhood.controller.mapController',{
 	        return;
 	      }
 
-	      // Clear out the old markers.
-	      markers.forEach(function(marker) {
-	        marker.setMap(null);
-	      });
-	      markers = [];
 
 	      // For each place, get the icon, name and location.
 	      var bounds = new google.maps.LatLngBounds();
 	      places.forEach(function(place) {
-	        var icon = {
-	          url: place.icon,
-	          size: new google.maps.Size(71, 71),
-	          origin: new google.maps.Point(0, 0),
-	          anchor: new google.maps.Point(17, 34),
-	          scaledSize: new google.maps.Size(25, 25)
-	        };
-
-	        // Create a marker for each place.
-	        var marker = new google.maps.Marker({
-		          map: mymap,
-		          icon: icon,
-		          title: place.name,
-		          position: place.geometry.location
-		        });
 	        
-	        var infowindow = new google.maps.InfoWindow({
-	        	content: '<b>Do you want this to be your home location??<b><button>Save</button>'
-		    });
-		    marker.addListener('click', function() {
-		        infowindow.open(mymap, marker);
-		    });
-		    
-	        markers.push(marker);
-	        
-	        
+	    	  var htmlString = '<div><b>Do you want this to be your home location??<b></div><button  onclick="Neighborhood.app.getController(\'profileController\').update_user_loaction('+place.geometry.location.lat()+','+place.geometry.location.lat()+')">Save</button>';
+	    	  me.placeMarker(mymap,{
+					lat : place.geometry.location.lat(),
+					lng : place.geometry.location.lng()
+				},htmlString,place.name,place.icon);
 	        
 	        if (place.geometry.viewport) {
 	          // Only geocodes have viewport.
@@ -104,32 +81,60 @@ Ext.define('Neighborhood.controller.mapController',{
 		    	console.log("Geolocation is not supported by this browser.");
 		    }
 		}
-		/*google.maps.event.addListener(mymap, 'click', function(event) {
-		    me.placeMarker(mymap,divId,event.latLng);
-		});*/
+		
+		google.maps.event.addListener(mymap, 'click', function(event) {
+			var htmlString = '<div><b>Do you want this to be your home location??<b></div><button  onclick="Neighborhood.app.getController(\'profileController\').update_user_loaction('+event.latLng.lat()+','+event.latLng.lat()+')">Save</button>';
+		    me.placeMarker(mymap,{
+				lat : event.latLng.lat(),
+				lng : event.latLng.lng()
+			},htmlString,'Save location');
+		});
 	},
 	
-	placeMarker :function (map,location,contentString,title) {
+	placeMarker :function (map,location,contentString,title,icon) {
+		var me= this;
 		map.setCenter(new google.maps.LatLng(location.lat, location.lng));
 		
+		// Clear out the old markers.
+		this.markers.forEach(function(marker) {
+	        marker.setMap(null);
+	      });
+		this.markers = [];
 		
 		
-		  var marker = new google.maps.Marker({
-		      position: location, 
-		      map: map,
-		      title: (title ? title : '')
-		  });
-		  if(contentString && contentString != ''){
-		  var infowindow = new google.maps.InfoWindow({
-			    content: contentString
-			  });
+		if(icon){
+			var iconImage = {
+		          url: icon,
+		          size: new google.maps.Size(71, 71),
+		          origin: new google.maps.Point(0, 0),
+		          anchor: new google.maps.Point(17, 34),
+		          scaledSize: new google.maps.Size(25, 25)
+		     };
+		}
+		
 
-			  
-			  marker.addListener('click', function() {
-			    infowindow.open(map, marker);
-			  });
-		  }
-		  
+        // Create a marker for each place.
+        var marker = new google.maps.Marker({
+	          map: map,
+	          icon: iconImage ? iconImage : '',
+	          title: title,
+	          position: location
+	        });
+        
+        if(contentString && contentString != ''){
+        	marker.infowindow = new google.maps.InfoWindow({
+	        	content: contentString
+		    });
+		    marker.addListener('click', function() {
+		        infowindow.open(map, marker);
+		    });
+		    
+		    marker.infowindow.open(map, marker);
+        }
+	    
+        this.markers.push(marker);
+		
+		
 	},
 	getMapPath: function(){
 		return mapPolygon.latLngs.j;
