@@ -50,7 +50,7 @@ Ext.define('Neighborhood.controller.mapController',{
 	      var bounds = new google.maps.LatLngBounds();
 	      places.forEach(function(place) {
 	        
-	    	  var htmlString = '<div><b>Do you want this to be your home location??<b></div><button  onclick="Neighborhood.app.getController(\'profileController\').update_user_loaction('+place.geometry.location.lat()+','+place.geometry.location.lat()+')">Save</button>';
+	    	  var htmlString = '<div><b>Do you want this to be your home location??<b></div><button  onclick="Neighborhood.app.getController(\'profileController\').update_user_loaction('+place.geometry.location.lat()+','+place.geometry.location.lng()+')">Save</button>';
 	    	  me.placeMarker(mymap,{
 					lat : place.geometry.location.lat(),
 					lng : place.geometry.location.lng()
@@ -83,7 +83,7 @@ Ext.define('Neighborhood.controller.mapController',{
 		}
 		
 		google.maps.event.addListener(mymap, 'click', function(event) {
-			var htmlString = '<div><b>Do you want this to be your home location??<b></div><button  onclick="Neighborhood.app.getController(\'profileController\').update_user_loaction('+event.latLng.lat()+','+event.latLng.lat()+')">Save</button>';
+			var htmlString = '<div><b>Do you want this to be your home location??<b></div><button  onclick="Neighborhood.app.getController(\'profileController\').update_user_loaction('+event.latLng.lat()+','+event.latLng.lng()+')">Save</button>';
 		    me.placeMarker(mymap,{
 				lat : event.latLng.lat(),
 				lng : event.latLng.lng()
