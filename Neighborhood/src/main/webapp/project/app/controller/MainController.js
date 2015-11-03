@@ -333,10 +333,10 @@ Ext.define('Neighborhood.controller.MainController',{
 			
 			
 			if(!userData.latitude && !userData.longitude){
-				Neighborhood.app.getController('mapController').loadMapWithMarker('userMapContainer');
+				Neighborhood.app.getController('user_map_controller').loadMapWithMarker('userMapContainer');
 				$('#user_map_search_box_id').attr("placeholder", "Search to add your location..");
 			}else if(userData.latitude && userData.longitude){
-				Neighborhood.app.getController('mapController').loadMapWithMarker('userMapContainer',{
+				Neighborhood.app.getController('user_map_controller').loadMapWithMarker('userMapContainer',{
 					lat : parseFloat(userData.latitude),
 					lng : parseFloat(userData.longitude)
 				});

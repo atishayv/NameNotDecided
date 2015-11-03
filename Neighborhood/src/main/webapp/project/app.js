@@ -36,7 +36,7 @@ Ext.application({
                    'profileController',
                    'eventController',
                    'loginController',
-                   'mapController'],
+                   'user_map_controller'],
      
      stores :['userProfileStore',
               'timelineStore'],

@@ -11,7 +11,7 @@ Ext.define('Neighborhood.view.mapView',{
         },
 		listeners:{
 			show : function(){
-           	 	Neighborhood.app.getController('mapController').loadMapWithMarker('localityMapContainer',{lat:12.9715987,lng : 77.5945627});
+           	 	Neighborhood.app.getController('user_map_controller').loadMapWithMarker('localityMapContainer',{lat:12.9715987,lng : 77.5945627});
             }
 		},
 		

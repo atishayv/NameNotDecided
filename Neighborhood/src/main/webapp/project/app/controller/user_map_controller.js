@@ -1,4 +1,4 @@
-Ext.define('Neighborhood.controller.mapController',{
+Ext.define('Neighborhood.controller.user_map_controller',{
 	extend: 'Ext.app.Controller',
 	markers : [],
 	

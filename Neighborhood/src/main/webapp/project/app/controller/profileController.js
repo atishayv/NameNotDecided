@@ -108,7 +108,7 @@ Ext.define('Neighborhood.controller.profileController',{
 	
 	update_user_loaction : function(lat,lng){
 		//close the info window
-		Neighborhood.app.getController('mapController').markers[0].infowindow.close();
+		Neighborhood.app.getController('user_map_controller').markers[0].infowindow.close();
 		
 		var json = {};
 		
