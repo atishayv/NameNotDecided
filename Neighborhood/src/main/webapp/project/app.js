@@ -30,13 +30,15 @@ Ext.application({
             'profileView',
             'contactView',
             'eventView',
-            'mapView'],
+            'mapView',
+            'neighborhood_view'],
     
     controllers : ['MainController',
                    'profileController',
                    'eventController',
                    'loginController',
-                   'user_map_controller'],
+                   'user_map_controller',
+                   'locality_map_controller'],
      
      stores :['userProfileStore',
               'timelineStore'],

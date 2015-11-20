@@ -79,7 +79,7 @@ Ext.define('Neighborhood.view.mainView',{
 					'</ul>'+
 				'</li>'+
 				'<li>'+
-					'<a onclick="Neighborhood.app.getController(\'MainController\').gotoMapView()"><i class="menu-icon fa fa-street-view"></i><span class="mm-text mmc-dropdown-delay animated fadeIn">Map</span></a>'+
+					'<a onclick="Neighborhood.app.getController(\'MainController\').go_to_neighborhood_view()"><i class="menu-icon fa fa-street-view"></i><span class="mm-text mmc-dropdown-delay animated fadeIn">My Neighborhood</span></a>'+
 				'</li>'+
 				'<li class="mm-dropdown mm-dropdown-root"  onclick="$(this).toggleClass(\'open\')">'+
 					'<a href="#"><i class="menu-icon fa fa-desktop"></i><span class="mm-text mmc-dropdown-delay animated fadeIn">UI elements</span></a>'+

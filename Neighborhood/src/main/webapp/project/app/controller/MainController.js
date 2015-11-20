@@ -4,8 +4,8 @@ Ext.define('Neighborhood.controller.MainController',{
 	
 	
 	index : function(){
-		Neighborhood.app.getController('loginController').index();
-		//this.showMainView();
+		//Neighborhood.app.getController('loginController').index();
+		this.showMainView();
 		
 	},
 	
@@ -339,7 +339,7 @@ Ext.define('Neighborhood.controller.MainController',{
 				Neighborhood.app.getController('user_map_controller').loadMapWithMarker('userMapContainer',{
 					lat : parseFloat(userData.latitude),
 					lng : parseFloat(userData.longitude)
-				});
+				},'Your Home');
 			}
 				
 			
@@ -415,6 +415,15 @@ Ext.define('Neighborhood.controller.MainController',{
 		}else{
 			$('.mainViewCls .detailPanelCls .x-innerhtml .quick-update .title')[0].style.display="none";
 		}
+	},
+	
+	go_to_neighborhood_view : function(){
+		if(!this.neighborhood_view)
+			this.neighborhood_view = Ext.create('Neighborhood.view.neighborhood_view');
+		
+		this.mainView.getComponent('detailPanelId').setActiveItem(this.neighborhood_view);
+		
+		Neighborhood.util.showStars();
 	}
 	
 	

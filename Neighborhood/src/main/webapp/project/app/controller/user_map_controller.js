@@ -3,12 +3,8 @@ Ext.define('Neighborhood.controller.user_map_controller',{
 	markers : [],
 	
 	
-	loadMap: function(){
-		loadInitialCoordinates(function(){
-			loadMap('mapContainer');
-		});
-	},
-	loadMapWithMarker: function(divId,location){
+	
+	loadMapWithMarker: function(divId,location,contentString){
 		var me = this;
 		
 		var mymap = "";
@@ -68,7 +64,7 @@ Ext.define('Neighborhood.controller.user_map_controller',{
 		
 		
 		if(location){
-			me.placeMarker(mymap,location)
+			me.placeMarker(mymap,location,contentString);
 		}else{
 			if (navigator.geolocation) {
 				navigator.geolocation.getCurrentPosition(function(position){

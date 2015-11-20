@@ -263,11 +263,7 @@ Ext.define('Neighborhood.view.profileView',{
                             '<div class="pmb-block">'+
                             '<div class="pmbb-header">'+
                             '<h2><i class="fa fa-map-marker"></i> Location</h2>'+
-                            '<ul class="actions"><li class="dropdown"><a href="" data-toggle="dropdown">'+
-                            '<i class="fa fa-bars"></i></a>'+
-                            '<ul class="dropdown-menu dropdown-menu-right"><li>'+
-                            '<a data-pmb-action="edit" onclick="Neighborhood.app.getController(\'profileController\').enableEdit()">Change Location</a>'+
-                            '</li></ul></li></ul></div>'+
+                            '</div>'+
                             '<div class="pmbb-body map">'+
                             '<input id="user_map_search_box_id" class="controls" type="text" placeholder="Search Places..">'+
                             '<div id="userMapContainer" style="height: 300px"></div>'+
