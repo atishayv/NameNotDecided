@@ -18,7 +18,7 @@ Ext.define('Neighborhood.view.mainView',{
 		    	   	'<div class="mainViewToolbarTextCls">'+
 		    		   '<span class="spanDesc">The private special network for your locality</span>'+
 		    		   '<span class="top-search-wrap">'+
-		                '<input type="text">'+
+		                '<input type="text" onkeypress="Neighborhood.app.getController(\'search_controller\').on_search(event, this)">'+
 		                '<i class="top-search-close" onclick="$(this.parentElement.parentElement.parentElement).removeClass(\'search\')">×</i>'+
 		    		   '</span>'+
 		    		    '<span class="top-menu">'+

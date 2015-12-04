@@ -31,14 +31,16 @@ Ext.application({
             'contactView',
             'eventView',
             'mapView',
-            'neighborhood_view'],
+            'neighborhood_view',
+            'search_results_view'],
     
     controllers : ['MainController',
                    'profileController',
                    'eventController',
                    'loginController',
                    'user_map_controller',
-                   'locality_map_controller'],
+                   'locality_map_controller',
+                   'search_controller'],
      
      stores :['userProfileStore',
               'timelineStore'],

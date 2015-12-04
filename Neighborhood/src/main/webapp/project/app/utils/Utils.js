@@ -31,5 +31,19 @@ Ext.define('Neighborhood.util',{
 	        // Replace the numerical value with stars
 	        $(this).html($span);
 	    });
+	},
+	
+	load_map_with_coordinates : function(div_id,latitude,longitude){
+		var mymap = "";
+		var mapOptions = {
+            zoom: 8,
+            maxZoom:12,
+            center: new google.maps.LatLng(latitude, longitude),
+            zoomControl:true,
+            zoomControlOptions:{style:"SMALL"},
+            mapTypeId: google.maps.MapTypeId.HYBRID,
+            draggable:true
+        };
+		mymap = new google.maps.Map(document.getElementById(div_id),mapOptions);
 	}
 });
