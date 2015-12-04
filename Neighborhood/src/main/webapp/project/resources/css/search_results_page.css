@@ -1,0 +1,44 @@
+.search_results_view_cls{
+	overflow-y : scroll;
+	overflow-x: hidden;
+	background: white;
+}
+
+.search_results_view_cls .search_results_view_panel_cls{
+	height : 100%;
+}
+.search_results_view_cls .search_results_view_panel_cls .x-innerhtml{
+	height : 100%;
+}
+
+.search_results_view_cls .search_results_view_panel_cls .x-innerhtml .search_results_container_div_cls .search_result_item_cls{
+    height: 215px;
+    padding: 10px;
+    vertical-align: middle;
+    width: 100%;	
+    border-bottom: 1px solid #B026F7;
+}
+
+.search_results_view_cls .search_results_view_panel_cls .x-innerhtml .search_results_container_div_cls .search_result_item_cls img{
+    width: 15%;
+    height: 88%;
+    border-radius: 50%;
+    float: left;
+    padding: 1%;	
+}
+
+.search_results_view_cls .search_results_view_panel_cls .x-innerhtml .search_results_container_div_cls .search_result_item_cls .description_cls{
+	width: 70%;
+    height: 100%;
+    /* text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap; */
+    float: left;
+    spadding: 1%;	
+}
+
+.search_results_view_cls .search_results_view_panel_cls .x-innerhtml .search_results_container_div_cls .search_result_item_cls .small_map_cls{
+    float: left;
+    width: 15%;
+    height: 100%;	
+}
